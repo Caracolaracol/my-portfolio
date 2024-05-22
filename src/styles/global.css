@@ -46,7 +46,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
-        @apply dark:text-platinum text-raisinblack dark:bg-dark bg-snow;
+        @apply dark:text-platinum text-raisinblack dark:bg-dark bg-dark;
       
     }
 
@@ -59,7 +59,6 @@
 
     html {
         scroll-behavior: smooth;
-        
     }
 
     a {
