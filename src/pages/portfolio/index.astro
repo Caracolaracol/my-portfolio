@@ -17,9 +17,15 @@ import pw from "@/assets/icons/playwright.svg";
 import astro from "@/assets/icons/astro.svg";
 import php from "@/assets/icons/php.svg";
 import gleam from "@/assets/icons/lucy.svg";
+import yo from "@/assets/images/yo3.webp";
 ---
 
 <MainLayout title="Caracolaracol | Portfolio">
+  <aside
+    transition:name="side"
+    class={`hidden transition-opacity opacity-50 hide_scrollbar laptop:block  w-[20rem] h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 z-30 bg-cerise/80 background_noise`}
+  >
+  </aside>
   <main class="w-full font-tommyMedium">
     <div class="mb-8">
       <div class="bg-cerise py-1 h-16 flex items-center">
@@ -50,54 +56,62 @@ import gleam from "@/assets/icons/lucy.svg";
           About me
         </h1>
       </div>
-      <p class="my-2">
-        I'm from Santiago, Chile. Here I work as a software engineer at <a
-          href="https://www.tipddy.cl/"
-          target="_blank">Tipddy</a
-        >, an small tech company with an awesome team that makes awesome
-        products and services.
-      </p>
-      <p class="my-2">
-        I enjoy building things and creating art with different materials each
-        time. That will mean that when I want to create something, I dont mind
-        to spend a lot of time by learning the technique first and then making
-        the thing. I like the idea of never acomodate with just one way of
-        creating art, by changing the way every time I feel like I already
-        learned the skill.
-      </p>
-      <p class="my-2">
-        I'm also into Organic farming, in fact I'm a member of an urban garden
-        organization where I have some potage gardens and cultivate organic
-        food. They also have a magazine that they publish once in a month and I
-        participate as the photographer of the magazine.
-      </p>
-      <div class="mt-2 my-4 bg-timberwolf/5 w-fit px-2 rounded-sm">
-        <h2 class="font-chrono text-3xl">My links</h2>
-        <a
-          class="text-xl text-timberwolf hover:text-ocre transition-colors"
-          href="https://github.com/Caracolaracol"
-          target="_blank">Github</a
-        >
-        <a
-          class="text-xl text-timberwolf hover:text-ocre transition-colors"
-          href="https://www.linkedin.com/in/agustin-rojas-c4r4c01/"
-          target="_blank">Linkedin</a
-        >
-        <a
-          class="text-xl text-timberwolf hover:text-ocre transition-colors"
-          href="https://www.instagram.com/caracolaracol/"
-          target="_blank">Instagram</a
-        >
-        <a
-          class="text-xl text-timberwolf hover:text-ocre transition-colors"
-          href="https://docs.google.com/document/d/1p8NlNx_SESv5QeNiyZMEQTllUpHzBwEa34wesV15dyI/edit?usp=sharing"
-          target="_blank"
-        >
-          CV
-        </a>
+      <div>
+        <div class="p-2 float-right min-w-[19em] w-[32vw] max-w-[28em]">
+          <img class="rounded-md" src={yo.src} alt="yo" />
+          <div class="mt-2 my-4 bg-timberwolf/5 w-full px-2 rounded-sm">
+            <h2 class="font-chrono text-3xl">My links</h2>
+            <a
+              class="text-xl text-timberwolf hover:text-ocre transition-colors"
+              href="https://github.com/Caracolaracol"
+              target="_blank">Github</a
+            >
+            <a
+              class="text-xl text-timberwolf hover:text-ocre transition-colors"
+              href="https://www.linkedin.com/in/agustin-rojas-c4r4c01/"
+              target="_blank">Linkedin</a
+            >
+            <a
+              class="text-xl text-timberwolf hover:text-ocre transition-colors"
+              href="https://www.instagram.com/caracolaracol/"
+              target="_blank">Instagram</a
+            >
+            <a
+              class="text-xl text-timberwolf hover:text-ocre transition-colors"
+              href="https://docs.google.com/document/d/1p8NlNx_SESv5QeNiyZMEQTllUpHzBwEa34wesV15dyI/edit?usp=sharing"
+              target="_blank"
+            >
+              CV
+            </a>
+          </div>
+        </div>
+        <div>
+          <p class="my-2">
+            I'm from Santiago, Chile. Here I work as a software engineer at <a
+              href="https://www.tipddy.cl/"
+              target="_blank">Tipddy</a
+            >, an small tech company with an awesome team that makes awesome
+            products and services.
+          </p>
+
+          <p class="my-2">
+            I enjoy building things and creating art with different materials
+            each time. That will mean that when I want to create something, I
+            dont mind to spend a lot of time by learning the technique first and
+            then making the thing. I like the idea of never acomodate with just
+            one way of creating art, by changing the way every time I feel like
+            I already learned the skill.
+          </p>
+          <p class="my-2">
+            I'm also into Organic farming, in fact I'm a member of an urban
+            garden organization where I have some potage gardens and cultivate
+            organic food. They also have a magazine that they publish once in a
+            month and I participate as the photographer of the magazine.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="my-8">
+    <div class="my-8 clear-end">
       <div class="bg-ocre my-2 h-16 flex items-center">
         <h1
           class="tablet:tracking-wide tablet:text-5xl laptop:text-5xl desktop:text-5xl laptop:tracking-normal cursor-default text-[2.4rem]"
@@ -115,11 +129,6 @@ import gleam from "@/assets/icons/lucy.svg";
           <div
             class="flex flex-row flex-wrap gap-2 p-2 rounded-md w-full bg-timberwolf/10"
           >
-            <Image
-              src={js}
-              alt="javascript"
-              class="rounded-md w-12 tablet:w-16 laptop:w-16"
-            />
             <Image
               src={ts}
               alt="typescript"

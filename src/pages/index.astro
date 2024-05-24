@@ -7,6 +7,11 @@ const styles = "font-chrono text-2xl tablet:text-3xl laptop:text-4xl p-2";
 ---
 
 <MainLayout title="Caracolaracol || Portfolio">
+  <aside
+    transition:name="side"
+    class={`hidden opacity-0 transition-opacity  hide_scrollbar laptop:block  w-[20rem] h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 -right-10 z-30 bg-cerise/80 background_noise`}
+  >
+  </aside>
   <div
     class="home__transition mb-12 flex flex-col items-center justify-center self-center"
   >
@@ -39,7 +44,10 @@ const styles = "font-chrono text-2xl tablet:text-3xl laptop:text-4xl p-2";
       <h2 class={`${styles} pt-2`}>Welcome to my site!</h2>
     </main>
 
-    <nav class="tablet:py-3 z-50 flex justify-center py-2">
+    <nav
+      transition:name="portfolio"
+      class="tablet:py-3 z-50 flex justify-center py-2"
+    >
       <a href="portfolio">
         <button 
           class="font-tommyMedium bg-violet text-platinum hover:text-cerise dark:bg-violet dark:hover:text-cerise dark:text-blancon tablet:py-0 tablet:h-14 tablet:px-4 desktop:px-7 desktop:py-8 tablet:text-4xl desktop:text-4xl tablet:tracking-wider tablet:min-w-[20rem] laptop:min-w-[22rem] group flex h-10 w-fit min-w-[14.5rem] items-center justify-center gap-2 rounded-lg px-6 py-6 text-2xl transition-colors"
