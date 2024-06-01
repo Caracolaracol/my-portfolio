@@ -59,13 +59,12 @@ function SideMenu() {
     return (
         <aside
             ref={wrapperRef}
-            className={`${showSideMenu ? "!block showsidemenu " : ""} ${hideSideMenuAnimation ? "hidesidemenu" : ""
-                } hidden  hide_scrollbar laptop:block  w-[20rem] h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0  bg-cerise background_noise`}> {/*  overflow-y-scroll  */}
+            className={` w-3 h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 bg-cerise background_noise`}> {/*  overflow-y-scroll  */}
             <div className='mx-3 border-b-[1px] h-[54px]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex'>
                 {/* Empty Space for the logo */}
             </div>
 
-            <div className="pl-[1.2rem] pt-3 laptop:pt-[2.5rem] mb-4 rounded-tr-sm rounded-br-sm hide_scrollbar "> {/*  overflow-y-scroll  */}
+            {/* <div className="pl-[1.2rem] pt-3 laptop:pt-[2.5rem] mb-4 rounded-tr-sm rounded-br-sm hide_scrollbar "> 
                 <div onClick={handlerSide} className="laptop:hidden absolute top-2 flex flex-col items-center pl-[15rem] group">
                     <div className='flex justify-center filtromorado w-8 h-8 tablet:w-8 tablet:h-8 items-center transition-colors cursor-pointer rounded-full -translate-x-[1px]'>
                         <p className='font-tommybold font-black text-lg tablet:text-lg svg group-hover:text-cerise'>{` } `}</p>
@@ -76,10 +75,9 @@ function SideMenu() {
                 </div>
 
                 <div ref={ulRef} className="flex group ">
-                    {/* <MenuList pathname={pathname} params={params} /> */}
                     <p className="hidden self-end text-cerise opacity-90 group-hover:animate-bounce">▼</p>
                 </div>
-            </div>
+            </div> */}
         </aside>
     )
 }
