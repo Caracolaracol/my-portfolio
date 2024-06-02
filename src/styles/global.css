@@ -140,52 +140,69 @@
 
 
         /* ----- SIDE MENU ----- */
-  .showsidemenu {
+  .showSideMenu {
     transition: ease;
     opacity: 1;
-    animation: showComponent 450ms ease-out;
+    animation: animateShowSideMenu 450ms ease-out;
   }
-  @media only screen and (max-width: 1024px) {
-    .hidesidemenu {
-      transition: ease;
-      opacity: 1;
-      animation: showprojectreverse 450ms forwards ease-out;
-    }
-  }
-  .showComponent {
+  .hideSideMenu {
     transition: ease;
-    animation: showComponent 850ms ease-out;
+    animation: animateHideSideMenu 450ms forwards ease-out;
   }
 
-  @keyframes showComponent {
+  .moveSideMenuButton{
+    transition: ease;
+    animation: moveSideMenuButton 450ms ease-out;
+  }
+  .hideSideMenuButton{
+    transition: ease;
+    animation: hideSideMenuButton 450ms ease-out;
+  }
+  @media only screen and (max-width: 1024px) {
+    .hideSideMenu {
+      transition: ease;
+      opacity: 1;
+      animation: animateHideSideMenu 450ms forwards ease-out;
+    }
+  }
+  /*  .showComponent {
+    transition: ease;
+    animation: showComponent 850ms ease-out;
+  } */
+@keyframes moveSideMenuButton {
+  from {
+    transform: translate(0px, 0);
+  }
+
+  to {
+    transform: translate(274px, 0);
+  }
+}
+@keyframes hideSideMenuButton {
+  from {
+    transform: translate(274px, 0);
+  }
+
+  to {
+    transform: translate(0px, 0);
+  }
+}
+  @keyframes animateShowSideMenu {
     from {
-      opacity: 0;
       transform: translate(-300px, 0);
     }
 
     to {
-      opacity: 1;
       transform: translate(0px, 0);
     }
-  }
-  @keyframes showprojectreverse {
+  } 
+   @keyframes animateHideSideMenu {
     0% {
-      display: block;
       transform: translate(0px, 0);
     }
-
-    80% {
-      display: block;
-    }
-
     100% {
-      display: none;
-      transform: translate(-300px, 0);
+      transform: translate(-270px, 0);
     }
-  }
-
-  .circleround {
-    clip-path: circle();
   }
 }
 
