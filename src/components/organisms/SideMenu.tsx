@@ -16,16 +16,20 @@ function SideMenu() {
     /*     useEffect(() => {
             setTimeout(() => {
                 setShowProjectlist(true)
-            }, 250);
+            }, 220);
+    
         }, []) */
-
 
     const handlerSide = () => {
         if (isShowingSideMenu == false) {
             showSideMenuAtom.set(true)
             isShowingSideMenuAtom.set(true)
+            setTimeout(() => {
+                setShowProjectlist(true)
+            }, 220);
         } else {
             hideSideMenuAnimationAtom.set(true)
+            setShowProjectlist(false)
             setTimeout(() => {
                 showSideMenuAtom.set(false)
                 isShowingSideMenuAtom.set(false)
@@ -33,6 +37,7 @@ function SideMenu() {
             }, 452);
         }
     }
+
 
     // SHOW AND HIDE SIDE MENU HANDLER
     useEffect(() => {
@@ -74,7 +79,7 @@ function SideMenu() {
                     {/* Empty Space for the logo */}
                 </div>
 
-                <ul className={`p-1 mt-4 w-full ${showProjectList ? 'opacity-100' : 'opacity-0'}  duration-300 transition-opacity`}>
+                <ul className={`p-1 mt-4 w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-opacity`}>
                     <div className="my-6">
                         <CategoryTitle>Web</CategoryTitle>
                         <ProjectLink>Language Spin</ProjectLink>
@@ -105,22 +110,6 @@ function SideMenu() {
                         <ProjectLink>Entradas más antiguas</ProjectLink>
                     </div>
                 </ul>
-                {/* <div className="pl-[1.2rem] pt-3 laptop:pt-[2.5rem] mb-4 rounded-tr-sm rounded-br-sm hide_scrollbar "> 
-                <div onClick={handlerSide} className="laptop:hidden absolute top-2 flex flex-col items-center pl-[15rem] group">
-                <div className='flex justify-center filtromorado w-8 h-8 tablet:w-8 tablet:h-8 items-center transition-colors cursor-pointer rounded-full -translate-x-[1px]'>
-                <p className='font-tommybold font-black text-lg tablet:text-lg svg group-hover:text-cerise'>{` } `}</p>
-                </div>
-                <div className="cursor-pointer min-w-[59px]">
-                <p className='font-tommyregular text-[0.6rem] tablet:text-[0.6rem] opacity-80 antialiased text-center text-snow dark:text-cerise transition-colors tracking-wider '>Close</p>
-                </div>
-                </div>
-                
-                <div ref={ulRef} className="flex group ">
-                <p className="hidden self-end text-cerise opacity-90 group-hover:animate-bounce">▼</p>
-                </div>
-            </div> */}
-
-
             </aside>
             <button onClick={handlerSide} className={`${showSideMenu ? "moveSideMenuButton translate-x-[274px] " : "translate-x-[0px] "} ${hideSideMenuAnimation ? "hideSideMenuButton " : ""} left-0 z-50 fixed laptop:hidden cursor-pointer`}>
                 <div className='flex justify-center rounded-r-md bg-cerise hover:bg-violet active:bg-violet w-5 h-8 tablet:w-5 tablet:h-8 items-center transition-colors cursor-pointer'>
