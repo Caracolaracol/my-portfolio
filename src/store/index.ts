@@ -7,6 +7,7 @@ export const locationAtom = atom<string>('')
 export const isShowingSideMenuAtom = atom<boolean>(false)
 export const showSideMenuAtom = atom<boolean>(false)
 export const hideSideMenuAnimationAtom = atom<boolean>(false)
+export const showProjectListAtom = atom<boolean>(false)
 
 // NavBarMobile
 export const isShowingNavBarMenuAtom = atom<boolean>(false)

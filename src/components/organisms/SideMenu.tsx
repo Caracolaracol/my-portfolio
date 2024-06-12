@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { hideSideMenuAnimationAtom, isShowingSideMenuAtom, showSideMenuAtom } from "@/store"
+import { hideSideMenuAnimationAtom, isShowingSideMenuAtom, showProjectListAtom, showSideMenuAtom } from "@/store"
 import { useStore } from "@nanostores/react"
 import CategoryTitle from "../atoms/CategoryTitle"
 import ProjectLink from "../atoms/ProjectLink"
@@ -11,7 +11,7 @@ function SideMenu() {
     const showSideMenu = useStore(showSideMenuAtom)
     const isShowingSideMenu = useStore(isShowingSideMenuAtom)
     const hideSideMenuAnimation = useStore(hideSideMenuAnimationAtom)
-    const [showProjectList, setShowProjectlist] = useState(false)
+    const showProjectList = useStore(showProjectListAtom)
 
     /*     useEffect(() => {
             setTimeout(() => {
@@ -20,23 +20,7 @@ function SideMenu() {
     
         }, []) */
 
-    const handlerSide = () => {
-        if (isShowingSideMenu == false) {
-            showSideMenuAtom.set(true)
-            isShowingSideMenuAtom.set(true)
-            setTimeout(() => {
-                setShowProjectlist(true)
-            }, 220);
-        } else {
-            hideSideMenuAnimationAtom.set(true)
-            setShowProjectlist(false)
-            setTimeout(() => {
-                showSideMenuAtom.set(false)
-                isShowingSideMenuAtom.set(false)
-                hideSideMenuAnimationAtom.set(false)
-            }, 452);
-        }
-    }
+
 
 
     // SHOW AND HIDE SIDE MENU HANDLER
@@ -111,11 +95,7 @@ function SideMenu() {
                     </div>
                 </ul>
             </aside>
-            <button onClick={handlerSide} className={`${showSideMenu ? "moveSideMenuButton translate-x-[274px] " : "translate-x-[0px] "} ${hideSideMenuAnimation ? "hideSideMenuButton " : ""} left-0 z-50 fixed laptop:hidden cursor-pointer`}>
-                <div className='flex justify-center rounded-r-md bg-cerise hover:bg-violet active:bg-violet w-5 h-8 tablet:w-5 tablet:h-8 items-center transition-colors cursor-pointer'>
-                    <p className='font-tommyBold font-black text-lg tablet:text-lg '>{` } `}</p>
-                </div>
-            </button>
+
         </>
     )
 }
