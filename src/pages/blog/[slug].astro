@@ -1,0 +1,22 @@
+---
+import { BLOG_ENTRIES } from "@/config/posts";
+import MainLayout from "@/layouts/MainLayout.astro";
+
+export function getStaticPaths() {
+  return BLOG_ENTRIES.map(({ link }) => {
+    return {
+      params: {
+        slug: link,
+      },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+let a = Astro.url;
+console.log(a);
+---
+
+<MainLayout title="Caracolaracol | Blog">
+  <div>{slug}!</div>
+</MainLayout>

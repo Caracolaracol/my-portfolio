@@ -1,11 +1,12 @@
 interface childrenProps {
     children: JSX.Element | String;
+    to: string;
 }
-function ProjectLink({ children }: childrenProps) {
+function ProjectLink({ children, to }: childrenProps) {
 
     return (
-        <a>
-            <li className={`font-tommyRegular text-darkpurple indent-1 laptop:text-[15px] desktop:text-[17px] tracking-wide antialiased dark:hover:text-snow hover:text-timberwolf`}>
+        <a href={to}>
+            <li className={`font-tommyRegular cursor-pointer text-darkpurple laptop:text-[15px] desktop:text-[17px] tracking-wide antialiased dark:hover:text-snow hover:text-timberwolf`}>
                 {children}
             </li>
         </a>

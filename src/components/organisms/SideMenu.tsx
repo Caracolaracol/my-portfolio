@@ -3,6 +3,7 @@ import { hideSideMenuAnimationAtom, isShowingSideMenuAtom, showProjectListAtom, 
 import { useStore } from "@nanostores/react"
 import CategoryTitle from "../atoms/CategoryTitle"
 import ProjectLink from "../atoms/ProjectLink"
+import { BLOG_ENTRIES, POSTS, POST_CATEGORIES } from "@/config/posts"
 
 
 function SideMenu() {
@@ -12,16 +13,6 @@ function SideMenu() {
     const isShowingSideMenu = useStore(isShowingSideMenuAtom)
     const hideSideMenuAnimation = useStore(hideSideMenuAnimationAtom)
     const showProjectList = useStore(showProjectListAtom)
-
-    /*     useEffect(() => {
-            setTimeout(() => {
-                setShowProjectlist(true)
-            }, 220);
-    
-        }, []) */
-
-
-
 
     // SHOW AND HIDE SIDE MENU HANDLER
     useEffect(() => {
@@ -63,35 +54,17 @@ function SideMenu() {
                     {/* Empty Space for the logo */}
                 </div>
 
-                <ul className={`p-1 mt-4 w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-opacity`}>
-                    <div className="my-6">
-                        <CategoryTitle>Web</CategoryTitle>
-                        <ProjectLink>Language Spin</ProjectLink>
-                        <ProjectLink>IronPlant.cl</ProjectLink>
-                    </div>
-                    <div className="my-6">
-                        <CategoryTitle>Apps</CategoryTitle>
-                        <ProjectLink>Giftoky</ProjectLink>
-                        <ProjectLink>Torchnd</ProjectLink>
-                    </div>
-                    <div className="my-6">
-                        <CategoryTitle>Videos</CategoryTitle>
-                        <ProjectLink>Bichos</ProjectLink>
-                        <ProjectLink>Cruzando Ríos / Saltando Piedras</ProjectLink>
-                        <ProjectLink>La cena está lista</ProjectLink>
-                        <ProjectLink>Quebrada radiocontrol</ProjectLink>
-                        <ProjectLink>Asamblea de jueces</ProjectLink>
-                    </div>
-                    <div className="my-6">
-                        <CategoryTitle>Art</CategoryTitle>
-                        <ProjectLink>Music Projects</ProjectLink>
-                        <ProjectLink>Macro Photography</ProjectLink>
-                        <ProjectLink>Arts</ProjectLink>
-                    </div>
+                <ul className={`p-1 ml-3 mt-4 w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-opacity`}>
+                    {POST_CATEGORIES.map(cat => (
+                        <div key={cat.title} className="my-6">
+                            <CategoryTitle>{cat.title}</CategoryTitle>
+                            {POSTS[cat.title].map(POST => <ProjectLink key={POST.title} to={`/portfolio/${POST.link}`}>{POST.title}</ProjectLink>)}
+                        </div>
+                    ))}
                     <div className="my-6">
                         <CategoryTitle>Blog</CategoryTitle>
-                        <ProjectLink>Introducción</ProjectLink>
-                        <ProjectLink>Entradas más antiguas</ProjectLink>
+                        <ProjectLink to={`/portfolio`}>Introduction</ProjectLink>
+                        {BLOG_ENTRIES.map(POST => <ProjectLink key={POST.title} to={`/blog/${POST.link}`}>{POST.title}</ProjectLink>)}
                     </div>
                 </ul>
             </aside>

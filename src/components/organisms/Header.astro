@@ -1,37 +1,9 @@
 ---
-import NavBar from "../molecules/NavBar";
-import NavBarMobile from "@/components/molecules/NavBarMobile";
-import logo from "@/assets/logo.png";
-import CategoryTitle from "../atoms/CategoryTitle";
-let pathname = Astro.url.pathname;
+
 ---
 
 <div id="header" class="tablet:w-screen bg-dark fixed w-full">
   <header class="bg-cerise h-0.5 laptop:h-3 background_noise"></header>
 
-  <!--   <header
-    class="border-timberwolf dark:border-timberwolf tablet:mr-6 tablet:ml-[2%] laptop:ml-[27vw] desktop:ml-[23rem] mx-2 flex flex-row items-center justify-between border-b-[1px] border-opacity-50 dark:border-opacity-70 h-[54px]"
-  >
-    <div class="laptop:ml-12 laptop:invisible z-[99] ml-2">
-      <a href="/">
-        <img
-          src={logo.src}
-          class="tablet:w-[5.5rem] transition-opacity-1 z-[99] w-20 drop-shadow-md"
-          alt="caracol"
-        />
-      </a>
-    </div>
-    <div class="tablet:mr-1 laptop:flex hidden h-full">
-      <nav
-        class="laptop:max-w-[18rem] laptop:min-w-[9rem] z-50 flex items-center"
-      >
-        <NavBar client:load pathname={pathname} />
-      </nav>
-    </div>
-  </header> -->
-  <div class="laptop:hidden flex">
-    <!-- <div class="laptop:hidden transition-opacity-1 flex flex-row">
-      <NavBarMobile client:load pathname={pathname} />
-    </div> -->
-  </div>
+  <div class="laptop:hidden flex"></div>
 </div>
