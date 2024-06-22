@@ -64,7 +64,7 @@ function SideMenu({ blogEntries }: { blogEntries: unknown[] }) {
                     <div className="my-6">
                         <CategoryTitle>Blog</CategoryTitle>
                         <ProjectLink to={`/portfolio`}>Introduction</ProjectLink>
-                        {blogEntries.map(POST => <ProjectLink key={POST.id} to={`/blog/${POST.slug}`}>{POST.data.title}</ProjectLink>)}
+                        {blogEntries.map((POST: any) => <ProjectLink key={POST.id} to={`/blog/${POST.slug}`}>{POST.data.title}</ProjectLink>)}
                     </div>
                 </ul>
             </aside>
