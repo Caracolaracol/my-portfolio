@@ -2,7 +2,7 @@
 import { POSTS } from "@/config/posts";
 import MainLayout from "@/layouts/MainLayout.astro";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
   return [...POSTS.Apps, ...POSTS.Web, ...POSTS.Art, ...POSTS.Videos].map(
     ({ link }) => {
       return {

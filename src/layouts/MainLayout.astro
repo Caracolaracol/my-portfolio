@@ -8,9 +8,11 @@ import SideMenu from "@/components/organisms/SideMenu";
 import logo from "@/assets/logo.png";
 import { ViewTransitions } from "astro:transitions";
 import SideMenuButton from "@/components/atoms/SideMenuButton";
+import { getCollection } from "astro:content";
 const { title } = Astro.props;
 let pathname = Astro.url.pathname;
 let params = Astro.params;
+const blogEntries = await getCollection("posts");
 ---
 
 <!doctype html>
@@ -55,7 +57,7 @@ let params = Astro.params;
               <div class="tablet:h-[3.3rem] top-0 h-[1.3rem] " />
               <div class="laptop:pl-[29vw] desktop:pl-[24rem]  tablet:w-[92%] laptop:w-[90%] desktop:w-[94%] desktop:max-w-[120rem] ml-[5%] tablet:ml-[4%] laptop:ml-[2%] desktop:ml-[1%] widescreen:ml-[2%] fullhd:mx-auto flex w-[95%] justify-center">
                 <slot />
-                <SideMenu client:load />
+                <SideMenu client:load blogEntries={blogEntries} />
                 <SideMenuButton client:load />
               </div>
             </div>

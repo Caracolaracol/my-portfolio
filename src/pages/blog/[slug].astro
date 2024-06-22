@@ -1,22 +1,20 @@
 ---
-import { BLOG_ENTRIES } from "@/config/posts";
-import MainLayout from "@/layouts/MainLayout.astro";
+import BlogLayout from "@/layouts/BlogLayout.astro";
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("posts");
 
-export function getStaticPaths() {
-  return BLOG_ENTRIES.map(({ link }) => {
-    return {
-      params: {
-        slug: link,
-      },
-    };
-  });
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
-const { slug } = Astro.params;
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 let a = Astro.url;
-console.log(a);
 ---
 
-<MainLayout title="Caracolaracol | Blog">
-  <div>{slug}!</div>
-</MainLayout>
+<BlogLayout>
+  <Content />
+</BlogLayout>

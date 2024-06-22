@@ -6,7 +6,7 @@ import ProjectLink from "../atoms/ProjectLink"
 import { BLOG_ENTRIES, POSTS, POST_CATEGORIES } from "@/config/posts"
 
 
-function SideMenu() {
+function SideMenu({ blogEntries }: { blogEntries: unknown[] }) {
     const wrapperRef = useRef<any>(null)
     const ulRef = useRef<any>(null)
     const showSideMenu = useStore(showSideMenuAtom)
@@ -64,7 +64,7 @@ function SideMenu() {
                     <div className="my-6">
                         <CategoryTitle>Blog</CategoryTitle>
                         <ProjectLink to={`/portfolio`}>Introduction</ProjectLink>
-                        {BLOG_ENTRIES.map(POST => <ProjectLink key={POST.title} to={`/blog/${POST.link}`}>{POST.title}</ProjectLink>)}
+                        {blogEntries.map(POST => <ProjectLink key={POST.id} to={`/blog/${POST.slug}`}>{POST.data.title}</ProjectLink>)}
                     </div>
                 </ul>
             </aside>

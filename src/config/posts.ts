@@ -3,6 +3,7 @@ type Post = {
     date: string;
     description: string;
     link: string;
+    slug: string;
 };
 
 type Category = {
@@ -15,13 +16,15 @@ export const POSTS: { [key in 'Web' | 'Apps' | 'Videos' | 'Art' ]: Post[] } = {
             title: "Language Spin",
             date: "2021-10-10",
             description: "Language Spin",
-            link: "language-spin"
+            link: "language-spin",
+            slug: "langslug-spin"
         },
         {
             title: "Iron Plant",
             date: "2021-10-10",
             description: "Iron Plant",
-            link: "iron-plant"
+            link: "iron-plant",
+            slug: "slug-plant"
         }
     ],
     Apps: [
@@ -29,13 +32,15 @@ export const POSTS: { [key in 'Web' | 'Apps' | 'Videos' | 'Art' ]: Post[] } = {
             title: "giftoky",
             date: "2021-10-10",
             description: "giftoky",
-            link: "giftoky"
+            link: "giftoky",
+            slug: "giftoky"
         },
         {
             title: "torchnd",
             date: "2021-10-10",
             description: "giftoky",
-            link: "torchnd"
+            link: "torchnd",
+            slug: "torchnd"
         }
     ],
     Videos: [
@@ -43,31 +48,36 @@ export const POSTS: { [key in 'Web' | 'Apps' | 'Videos' | 'Art' ]: Post[] } = {
             title: "Bichos",
             date: "2021-10-10",
             description: "giftoky",
-            link: "bichos"
+            link: "bichos",
+            slug: "bichos"
         },
         {
             title: "Cruzando Ríos / Saltando Piedras",
             date: "2021-10-10",
             description: "giftoky",
-            link: "cruzando-rios-saltando-piedras"
+            link: "cruzando-rios-saltando-piedras",
+            slug: "cruzando-slug-saltando-piedras"
         },
         {
             title: "La cena está lista",
             date: "2021-10-10",
             description: "giftoky",
-            link: "cena"
+            link: "cena",
+            slug: "cena"
         },
         {
             title: "Quebrada radiocontrol",
             date: "2021-10-10",
             description: "giftoky",
-            link: "quebrada"
+            link: "quebrada",
+            slug: "quebrada"
         },
         {
             title: "Asamblea de jueces",
             date: "2021-10-10",
             description: "giftoky",
-            link: "asamblea"
+            link: "asamblea",
+            slug: "asamblea"
         },
     ],
     Art: [
@@ -75,19 +85,22 @@ export const POSTS: { [key in 'Web' | 'Apps' | 'Videos' | 'Art' ]: Post[] } = {
             title: "Music Projects",
             date: "2021-10-10",
             description: "giftoky",
-            link: "music"
+            link: "music",
+            slug: "music"
         },
         {
             title: "Macro Photography",
             date: "2021-10-10",
             description: "giftoky",
-            link: "macro"
+            link: "macro",
+            slug: "macro"
         },
         {
             title: "Arts",
             date: "2021-10-10",
             description: "giftoky",
-            link: "art"
+            link: "art",
+            slug: "art"
         },
     ],
     
@@ -98,7 +111,8 @@ export const BLOG_ENTRIES: Post[] = [
         title: "Entrie1",
         date: "2021-10-10",
         description: "giftoky",
-        link: "entrie"
+        link: "entrie",
+        slug: "entrie"
     }
 ]
 
