@@ -21,11 +21,28 @@ export default {
 			darkpurple: '#332230',
 			violet: '#312559',
 			// TEXT
+			platinum: "#E8CFD4", // DARK
+			raisinblack: "#232031", // LIGHT
+			// BLACK AND WHITE
+			dark: "#232031", // DARK
+			snow: "#F4EFF1", // LIGHT
+
+			/* 
+			
+			// COLORS
+			cerise: '#D94A6D',
+			ocre: '#DE7F26',
+			timberwolf: '#c0a8a2',
+			darkpurple: '#332230',
+			violet: '#312559',
+			// TEXT
 			platinum: "#D8D1D4", // DARK
 			raisinblack: "#292736", // LIGHT
 			// BLACK AND WHITE
 			dark: "#211F2A", // DARK
 			snow: "#F4EFF1", // LIGHT
+			*/
+
 		},
 		screens: {
 			tablet: '640px',

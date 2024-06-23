@@ -1,4 +1,5 @@
 ---
+import PostTitle from "@/components/atoms/PostTitle.astro";
 import BlogLayout from "@/layouts/BlogLayout.astro";
 import { getCollection } from "astro:content";
 export async function getStaticPaths() {
@@ -11,10 +12,16 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
+console.log(entry);
 let a = Astro.url;
 ---
 
 <BlogLayout>
+  <PostTitle
+    title="Vuelo"
+    date={entry.data.pubDate}
+    category={entry.data.tags[0]}
+  />
   <Content />
 </BlogLayout>
