@@ -74,10 +74,19 @@
 @layer components {
     .background_noise {
         background-image: url("/bgnoiselight.svg");
+        background-attachment: local;
+
+    }
+    .background_noise_overlay{
+      background-image: url("/bgnoiselight.svg");
+      background-attachment: local;
+      background-blend-mode: overlay;
+
     }
 
     .background_noise_dark {
         background-image: url("/bgnoisedark.svg");
+        background-attachment: local;
     }
 
     /* Circle Image */

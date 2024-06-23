@@ -28,7 +28,7 @@ const blogEntries = await getCollection("posts");
     <ViewTransitions />
   </head>
   <body
-    class={`${pathname == "/" && "background_noise dark:background_noise_dark"} dark:text-platinum text-raisinblack dark:bg-dark bg-dark`}
+    class={`background_noise dark:background_noise_dark  dark:text-platinum text-raisinblack dark:bg-dark bg-dark`}
   >
     <div
       class={`${pathname == "/" ? "flex h-screen select-none flex-col justify-center" : "relative flex min-h-screen flex-col justify-between"}`}
@@ -55,7 +55,7 @@ const blogEntries = await getCollection("posts");
             <Header />
             <div class="tablet:pb-[5.9rem] tablet:w-full w-full pb-[7rem] ">
               <div class="tablet:h-[3.3rem] top-0 h-[1.3rem] " />
-              <div class="laptop:pl-[29vw] desktop:pl-[24rem]  tablet:w-[92%] laptop:w-[90%] desktop:w-[94%] desktop:max-w-[110rem] ml-[5%] tablet:ml-[4%] laptop:ml-[2%] desktop:ml-[1%] widescreen:ml-[2%] fullhd:mx-auto flex w-[95%] justify-center">
+              <div class="laptop:pl-[29vw] desktop:pl-[24rem]  tablet:w-[92%] laptop:w-[90%] desktop:w-[94%] desktop:max-w-[115rem] ml-[5%] tablet:ml-[4%] laptop:ml-[2%] desktop:ml-[1%] widescreen:ml-[2%] fullhd:mx-auto flex w-[95%] justify-center">
                 <slot />
                 <SideMenu client:load blogEntries={blogEntries} />
                 <SideMenuButton client:load />

@@ -49,7 +49,7 @@ function SideMenu({ blogEntries }: { blogEntries: unknown[] }) {
         <>
             <aside
                 ref={wrapperRef}
-                className={`${showSideMenu ? "!block showSideMenu" : "w-0.5"} ${hideSideMenuAnimation ? "hideSideMenu" : ""} z-30  h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 bg-cerise background_noise`}> {/*  overflow-y-scroll  */}
+                className={`${showSideMenu ? "!block showSideMenu" : "w-0.5"} ${hideSideMenuAnimation ? "hideSideMenu" : ""} z-30  h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 bg-cerise background_noise_overlay`}> {/*  overflow-y-scroll  */}
                 <div className='mx-3 border-b-[1px] h-[54px]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex'>
                     {/* Empty Space for the logo */}
                 </div>
