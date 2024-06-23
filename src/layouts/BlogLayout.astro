@@ -1,12 +1,21 @@
 ---
 import PostTitle from "@/components/atoms/PostTitle.astro";
 import MainLayout from "./MainLayout.astro";
+
+const { entry } = Astro.props;
 ---
 
 <MainLayout title="Caracolaracol | Blog">
   <main class="w-full font-tommyMedium">
     <div class="mb-8 pr-3 tablet:pr-0">
-      <slot />
+      <PostTitle
+        title="Vuelo"
+        date={entry.data.pubDate}
+        category={entry.data.tags[0]}
+      />
+      <div class="prose max-w-none text-platinum">
+        <slot />
+      </div>
     </div>
   </main>
 </MainLayout>

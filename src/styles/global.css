@@ -67,7 +67,7 @@
         -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     }
     p {
-  @apply tablet:text-lg text-base
+  @apply tablet:text-lg text-base ;
     }
 }
 
