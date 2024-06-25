@@ -2,25 +2,32 @@
 const { title, date, category } = Astro.props;
 import { DateTime } from "luxon";
 import { Today, Label } from "@/assets/icons/Icons";
+
 let pubDate = DateTime.fromJSDate(date).toLocaleString(
   DateTime.DATE_MED_WITH_WEEKDAY
 );
 ---
 
-<div class="bg-cerise mb-10 flex flex-col h-32 justify-center px-8">
+<div class="bg-cerise mb-10 flex flex-col h-[7rem] justify-center px-8">
   <h1
     class="tablet:tracking-wide tablet:text-5xl laptop:text-5xl desktop:text-5xl laptop:tracking-normal cursor-default text-[2.4rem]"
   >
     {title}
   </h1>
   <div class="flex gap-6">
-    <div class="flex gap-1 items-center">
-      <Today client:only classes="size-[1.3rem]" />
-      <p class="capitalize">{pubDate}</p>
-    </div>
-    <div class="flex gap-1 items-center">
-      <Label client:only classes="size-[1.7rem]" />
-      <p>{category}</p>
-    </div>
+    {
+      date && (
+        <>
+          <div class="flex gap-1 items-center">
+            <Today client:only classes="size-[1.17rem] fill-platinum" />
+            <p class="capitalize text-base">{pubDate}</p>
+          </div>
+          <div class="flex gap-1 items-center">
+            <Label client:only classes="size-[1.5rem] fill-platinum" />
+            <p class="text-base">{category}</p>
+          </div>
+        </>
+      )
+    }
   </div>
 </div>

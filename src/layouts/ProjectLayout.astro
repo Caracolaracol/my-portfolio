@@ -2,17 +2,13 @@
 import PostTitle from "@/components/atoms/PostTitle.astro";
 import MainLayout from "./MainLayout.astro";
 
-const { entry } = Astro.props;
+const { post } = Astro.props;
 ---
 
 <MainLayout title="Caracolaracol | Blog">
   <main class="w-full font-tommyMedium">
     <div class="mb-8 pr-3 tablet:pr-0">
-      <PostTitle
-        title={entry.data.title}
-        date={entry.data.pubDate}
-        category={entry.data.tags[0]}
-      />
+      <PostTitle title={post.data.title} />
       <div class="prose max-w-none text-platinum">
         <slot />
       </div>
