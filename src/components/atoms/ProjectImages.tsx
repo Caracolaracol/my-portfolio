@@ -53,8 +53,8 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
       }, [images, indexImage]) */
 
     return (
-        <div className="flex flex-col laptop:flex-row  w-[100%] mx-auto not-prose">
-            <div className="w-full rounded-lg">
+        <div className="flex flex-col laptop:flex-row laptop:items-center w-[100%] mx-auto not-prose">
+            <div className="w-full rounded-lg px-6">
                 <div className="rounded-lg">
                     <div className="relative h-full aspect-video rounded-lg">
                         {images && (
@@ -76,7 +76,7 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                     </div>
                 </div>
             </div>
-            <div className="laptop:h-[100%] laptop:mx-0 w-[100%] laptop:w-[12.7%]">
+            <div className="laptop:h-[100%] laptop:mx-0 w-[100%] laptop:w-[12.7%]  rounded-md">
                 <div className="grid grid-cols-4 w-[75%] mx-auto laptop:mx-0 laptop:w-[100%] laptop:grid-cols-1 place-content-around laptop:place-content-center h-full">
                     {images &&
                         images?.map((image, idx) => (
@@ -84,23 +84,24 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                                 onClick={() => handleChangeImage(idx)}
                                 onMouseEnter={() => handleChangeImage(idx)}
                                 key={image}
-                                className="mx-[0.2em] laptop:mx-0 my-1 aspect-square rounded-md bg-violet/20 overflow-hidden hover:brightness-125 block"
+                                style={{ borderColor: 'transparent' }}
+                                className="mx-[0.2em] laptop:mx-0 aspect-square border-2 border-transparent  rounded-md  overflow-hidden hover:brightness-125 block"
                             >
                                 <img
                                     alt="imgs"
                                     src={image}
-                                    className="object-fill scale-[3]"
+                                    className="object-fill scale-[3] "
                                 />
                             </button>
                         ))}
                     {images && images.length == 2 && (
                         <>
-                            <span className="mx-[0.2em] laptop:mx-0 my-1 aspect-square rounded-md bg-violet/20 overflow-hidden block"></span>
-                            <span className="mx-[0.2em] laptop:mx-0 my-1 aspect-square rounded-md bg-violet/20 overflow-hidden block"></span>
+                            <span className="mx-[0.2em] laptop:mx-0 aspect-square border-2  border-opacity-0 rounded-md overflow-hidden block"></span>
+                            <span className="mx-[0.2em] laptop:mx-0 aspect-square border-2  border-opacity-0 rounded-md  overflow-hidden block"></span>
                         </>
                     )}
                     {images && images.length == 3 && (
-                        <span className="mx-[0.2em] laptop:mx-0 my-1 aspect-square rounded-md bg-violet/20 overflow-hidden block"></span>
+                        <span className="mx-[0.2em] laptop:mx-0 aspect-square border-2 border-opacity-0 rounded-md bg-violet/20 overflow-hidden block"></span>
                     )}
                 </div>
             </div>
