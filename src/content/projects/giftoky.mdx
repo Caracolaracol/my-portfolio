@@ -3,5 +3,14 @@ pubDate: 2024-23-06
 author: Agustin Rojas
 title: Giftoky
 description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images: [
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/giftoky/giftoky1.png?t=2024-07-07T06%3A56%3A36.918Z",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/giftoky/giftoky3.png?t=2024-07-07T06%3A56%3A51.842Z",
+    "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/giftoky/giftoky4.png?t=2024-07-07T06%3A56%3A58.555Z"
+]
 ---
+import  ProjectImages  from '../../components/atoms/ProjectImages.tsx'
 
+<ProjectImages client:only images={frontmatter.images}/>
+
+I worked as a developer of the GIFTOKY app, the app was already in development when I joined the project but it was not working properly, now is entering the public beta. Giftoky works as a wishlist app but with a social component, so you can share your wishlist and interact with your friends wishlists by marking as reserved wish or given wish and more.

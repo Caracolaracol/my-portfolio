@@ -29,14 +29,14 @@ export const POSTS: { [key in 'Web' | 'Apps' | 'Videos' | 'Art' ]: Post[] } = {
     ],
     Apps: [
         {
-            title: "giftoky",
+            title: "Giftoky",
             date: "2021-10-10",
             description: "giftoky",
             link: "giftoky",
             slug: "giftoky"
         },
         {
-            title: "torchnd",
+            title: "Torchnd",
             date: "2021-10-10",
             description: "giftoky",
             link: "torchnd",
@@ -118,10 +118,10 @@ export const BLOG_ENTRIES: Post[] = [
 
 export const POST_CATEGORIES: Category[] = [
     {
-        title: "Web"
+        title: "Apps"
     },
     {
-        title: "Apps"
+        title: "Web"
     },
     {
         title: "Videos"
