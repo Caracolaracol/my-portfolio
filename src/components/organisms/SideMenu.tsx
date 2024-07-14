@@ -54,7 +54,7 @@ function SideMenu({ blogEntries }: { blogEntries: unknown[] }) {
                     {/* Empty Space for the logo */}
                 </div>
 
-                <ul className={`p-1 ml-3 mt-4 w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-opacity`}>
+                <ul className={`${showSideMenu ? 'relative' : 'hidden'} p-1 ml-3 mt-4 w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all`}>
                     {POST_CATEGORIES.map(cat => (
                         <div key={cat.title} className="my-6">
                             <CategoryTitle>{cat.title}</CategoryTitle>

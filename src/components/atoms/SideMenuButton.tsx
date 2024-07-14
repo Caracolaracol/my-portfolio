@@ -23,9 +23,9 @@ function SideMenuButton() {
     }
 
     return (
-        <button onClick={handlerSide} className={`bottom-7 z-50 fixed laptop:hidden cursor-pointer  `}>
-            <div className='flex justify-center rounded-full bg-ocre hover:bg-violet  active:bg-violet size-12 tablet:size-16 items-center transition-colors cursor-pointer'>
-                <p className='font-tommyBold font-black text-cerise text-3xl tablet:text-5xl '>{` } `}</p>
+        <button onClick={handlerSide} className={`bottom-0  z-20 fixed laptop:hidden cursor-pointer`}>
+            <div className='flex rounded-t-md justify-center px-16 tablet:px-24 bg-violet hover:bg-cerise  active:bg-ocre size-12 tablet:size-14 items-center transition-colors cursor-pointer'>
+                <p className='font-tommyBold font-black text-ocre text-3xl tablet:text-5xl '>{`  `}</p>
             </div>
         </button>
     )
