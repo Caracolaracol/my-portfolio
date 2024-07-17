@@ -53,8 +53,8 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
       }, [images, indexImage]) */
 
     return (
-        <div className="flex flex-col laptop:flex-row laptop:items-center w-[100%] mx-auto not-prose">
-            <div className="w-full rounded-lg px-6">
+        <div className="flex flex-col laptop:flex-row laptop:items-center w-[100%] mx-auto not-prose px-16 gap-2">
+            <div className="w-full rounded-lg">
                 <div className="rounded-lg">
                     <div className="relative h-full aspect-video rounded-lg">
                         {images && (

@@ -14,16 +14,16 @@ const postsCollection = defineCollection({
 
       tags: z.array(z.string())
     })
- });
+});
 
- const projectsCollection = defineCollection({
+const projectsCollection = defineCollection({
   schema:z.object({
     title: z.string(),
-      pubDate: z.date(),
-      description: z.string(),
-      author: z.string(),
+    pubDate: z.date(),
+    description: z.string(),
+    author: z.string(),
   })
- })
+})
 
 export const collections = {
   posts: postsCollection,
