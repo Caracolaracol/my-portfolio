@@ -13,6 +13,13 @@ type Category = {
 export const POSTS: { [key in 'Web' | 'Apps' | 'Videos' | 'Art' ]: Post[] } = {
     Web: [
         {
+            title: "Tickets",
+            date: "2021-10-10",
+            description: "Tickets",
+            link: "tickets",
+            slug: "tickets"
+        },
+        {
             title: "Language Spin",
             date: "2021-10-10",
             description: "Language Spin",
@@ -25,7 +32,8 @@ export const POSTS: { [key in 'Web' | 'Apps' | 'Videos' | 'Art' ]: Post[] } = {
             description: "Iron Plant",
             link: "iron-plant",
             slug: "slug-plant"
-        }
+        },
+        
     ],
     Apps: [
         {
