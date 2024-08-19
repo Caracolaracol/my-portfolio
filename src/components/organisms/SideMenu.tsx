@@ -6,7 +6,7 @@ import ProjectLink from "../atoms/ProjectLink"
 import { BLOG_ENTRIES, POSTS, POST_CATEGORIES } from "@/config/posts"
 
 
-function SideMenu({ blogEntries }: { blogEntries: unknown[] }) {
+function SideMenu({ blogEntries }: { blogEntries: any }) {
     const wrapperRef = useRef<any>(null)
     const ulRef = useRef<any>(null)
     const showSideMenu = useStore(showSideMenuAtom)
