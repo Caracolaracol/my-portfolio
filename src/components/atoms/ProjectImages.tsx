@@ -26,7 +26,7 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
         }
     };
 
-    /*
+    
       useEffect(() => {
           if (images) {
               const interval = setInterval(() => {
@@ -50,7 +50,7 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                   clearInterval(interval)
               }
           }
-      }, [images, indexImage]) */
+      }, [images, indexImage])
 
     return (
         <div className="flex flex-col laptop:flex-row laptop:items-center w-[100%] mx-auto not-prose px-16 gap-2">

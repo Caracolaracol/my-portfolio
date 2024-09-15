@@ -15,7 +15,7 @@ export default {
 		},
 		colors: {
 			// COLORS
-			cerise: '#DC3E65',
+			cerise: '#D94A6D', //  DC3E65,
 			ocre: '#DE7F26',
 			timberwolf: '#c0a8a2',
 			darkpurple: '#332230',

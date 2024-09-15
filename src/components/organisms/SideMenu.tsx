@@ -49,12 +49,12 @@ function SideMenu({ blogEntries }: { blogEntries: any }) {
         <>
             <aside
                 ref={wrapperRef}
-                className={`${showSideMenu ? "!block showSideMenu" : "w-0.5"} ${hideSideMenuAnimation ? "hideSideMenu" : ""} z-30  h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 bg-cerise background_noise_overlay`}> {/*  overflow-y-scroll  */}
+                className={`${showSideMenu ? "!block showSideMenu" : "w-0.5"} ${hideSideMenuAnimation ? "hideSideMenu" : ""}  z-30 h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 bg-cerise  background_noise_overlay`}> {/*  overflow-y-scroll  */}
                 <div className='mx-3 border-b-[1px] h-[54px]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex'>
                     {/* Empty Space for the logo */}
                 </div>
 
-                <ul className={`${showSideMenu ? 'relative' : 'hidden tablet:block'} p-1 ml-3 mt-4 w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all`}>
+                <ul className={`${showSideMenu ? 'relative' : 'hidden tablet:block'} p-1 ml-3 mt-4 h-full w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all`}>
                     {POST_CATEGORIES.map(cat => (
                         <div key={cat.title} className="my-6">
                             <CategoryTitle>{cat.title}</CategoryTitle>
@@ -65,6 +65,12 @@ function SideMenu({ blogEntries }: { blogEntries: any }) {
                         <CategoryTitle>Blog</CategoryTitle>
                         <ProjectLink to={`/portfolio`}>Introduction</ProjectLink>
                         {blogEntries.map((POST: any) => <ProjectLink key={POST.id} to={`/blog/${POST.slug}`}>{POST.data.title}</ProjectLink>)}
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0">
+                        <ul className="flex justify-between px-8 h-full py-2 my-2 font-chrono text-3xl text-raisinblack items-center">
+                            <li className="my-4">Login</li>
+                            {/* <li className="my-4 text-7xl font-semibold">{'<'}</li> */}
+                        </ul>
                     </div>
                 </ul>
             </aside>

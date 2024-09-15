@@ -10,7 +10,7 @@ type Category = {
   title: keyof typeof POSTS;
 };
 
-export const POSTS: { [key in "Web" | "Apps" | "Videos" | "Art"]: Post[] } = {
+export const POSTS: { [key in "Web" | "Apps" | "Videos" | "Art" | "Coding"]: Post[] } = {
   Web: [
     {
       title: "Tickets",
@@ -33,6 +33,22 @@ export const POSTS: { [key in "Web" | "Apps" | "Videos" | "Art"]: Post[] } = {
       link: "iron-plant",
       slug: "slug-plant",
     },
+    {
+      title: "FIDE Form",
+      date: "2021-10-10",
+      description: "giftoky",
+      link: "fideform",
+      slug: "fideform",
+    },
+  ],
+  Coding:[
+    {
+      title: "Gardens Database",
+      date: "2021-10-10",
+      description: "gardens",
+      link: "gardens",
+      slug: "gardens",
+    },
   ],
   Apps: [
     {
@@ -48,6 +64,13 @@ export const POSTS: { [key in "Web" | "Apps" | "Videos" | "Art"]: Post[] } = {
       description: "giftoky",
       link: "torchnd",
       slug: "torchnd",
+    },
+    {
+      title: "FIDE app",
+      date: "2021-10-10",
+      description: "giftoky",
+      link: "fide",
+      slug: "fide",
     },
   ],
   Videos: [
@@ -130,9 +153,12 @@ export const POST_CATEGORIES: Category[] = [
     title: "Web",
   },
   {
+    title:"Coding"
+  },
+  {
     title: "Videos",
   },
   {
     title: "Art",
-  },
+  }
 ];
