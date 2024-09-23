@@ -14,6 +14,7 @@ images:
 import ProjectImages from "../../components/atoms/ProjectImages.tsx";
 import expo from "@/assets/icons/expo.svg";
 import javascript from "@/assets/icons/javascript.svg";
+import typescript from "@/assets/icons/typescript.svg";
 import wordpress from "@/assets/icons/wordpress.svg";
 import php from "@/assets/icons/php.svg";
 import express  from "@/assets/icons/express.svg";
@@ -21,7 +22,10 @@ import { Image } from "astro:assets";
 
 <ProjectImages client:only images={frontmatter.images} />
 
-GIFTOKY® is an app that allows users to note and share gift ideas, transforming them into meaningful presents. Developed with React Native and Expo for the front-end, it ensures an efficient user experience, while the back-end is powered by Node.js and WordPress. The app facilitates the creation of personalized wish lists and social interaction, enabling users to follow friends' profiles and anonymously reserve gifts. GIFTOKY® streamlines gift planning and prevents duplicate presents, offering a free and accessible solution to enhance the quality and significance of received gifts. I joined the project after a year of prior development, resuming the paused work and successfully getting the app to work correctly on both iOS and Android. The app is now entering a public beta phase, welcoming users to test its features and provide feedback.
+GIFTOKY® is an app that allows users to note and share gift ideas, transforming them into meaningful presents. Developed with React Native and Expo for the front-end, it ensures an efficient user experience, while the back-end is powered by Node.js and WordPress. The app facilitates the creation of personalized wish lists and social interaction, enabling users to follow friends' profiles and anonymously reserve gifts.
+
+GIFTOKY® streamlines gift planning and prevents duplicate presents, offering a free and accessible solution to enhance the quality and significance of received gifts. I joined the project after a year of prior development, resuming the paused work and successfully getting the app to work correctly on both iOS and Android. The app is now entering a public beta phase, welcoming users to test its features and provide feedback.
+
 <div className="not-prose">
 <div> <p className="font-chrono text-platinum text-4xl tracking-wide ">Stack</p></div>
 <div className="flex gap-2">
@@ -52,4 +56,33 @@ GIFTOKY® is an app that allows users to note and share gift ideas, transforming
 />
 </div>
 
+<div className="mt-8"> <p className="font-chrono text-platinum text-4xl tracking-wide">Upcoming v2.0 Stack</p></div>
+
+<div className="flex gap-2">
+<Image
+    src={expo}
+    alt="react"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={typescript}
+    alt="typescript"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"/>
+<Image
+    src={wordpress}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={php}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={express}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+    </div>
+    
 </div>

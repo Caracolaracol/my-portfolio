@@ -72,6 +72,13 @@ export const POSTS: { [key in "Web" | "Apps" | "Videos" | "Art" | "Coding"]: Pos
       link: "fide",
       slug: "fide",
     },
+    {
+      title: "My Notes",
+      date: "2024-10-10",
+      description: "notes",
+      link: "notes",
+      slug: "notes",
+    },
   ],
   Videos: [
     {

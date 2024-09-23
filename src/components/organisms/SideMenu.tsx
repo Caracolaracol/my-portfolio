@@ -49,21 +49,16 @@ function SideMenu({ blogEntries }: { blogEntries: any }) {
         <>
             <aside
                 ref={wrapperRef}
-                className={`${showSideMenu ? "!block showSideMenu" : "w-0.5"} ${hideSideMenuAnimation ? "hideSideMenu" : ""} overflow-auto  z-30 h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 bg-cerise  background_noise_overlay`}> {/*  overflow-y-scroll  */}
-                <div className='mx-3 border-b-[1px] h-[54px]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex'>
-                    {/* Empty Space for the logo */}
+                className={`${showSideMenu ? "!block showSideMenu" : "w-0.5"} ${hideSideMenuAnimation ? "hideSideMenu" : ""} overflow-auto  z-30 h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 `}> {/*  overflow-y-scroll  */}
+                {/* <div className='mx-3 border-b-[1px] h-[54px]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex'>
                 </div>
                 <div className={`fixed bg-cerise border-b-[1px] h-[54px]  top-0 left-0 laptop:w-[26vw] desktop:w-[21rem]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex justify-end`}>
-                    {/* <div className="flex justify-around">
-                        <div className="bg-violet flex items-center mb-2 mt-3 px-4 rounded-md mr-3 py-3">
-                            <CategoryTitle text="text-platinum font-tommyMedium text-xl">Blog</CategoryTitle>
-                        </div>
-                    </div> */}
+                    
                 </div>
-                 
+                  */}
                 <div className="">
                    
-                    <ul className={`${showSideMenu ? 'relative' : 'hidden tablet:flex flex-col'}  p-1 pl-3  w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all `}>
+                    <ul className={`${showSideMenu ? 'relative' : 'hidden tablet:flex flex-col'}  p-1 pl-3  w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all mt-10 `}>
                         <div className="mt-2">
                             <ProjectLink to={`/portfolio`}>Introduction</ProjectLink>
                         </div>

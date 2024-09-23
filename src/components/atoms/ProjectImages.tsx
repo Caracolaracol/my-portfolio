@@ -53,16 +53,16 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
       }, [images, indexImage])
 
     return (
-        <div className="flex flex-col laptop:flex-row laptop:items-center w-[100%] mx-auto not-prose px-16 gap-2">
+        <div className="flex flex-col laptop:flex-row laptop:items-center w-[100%] mx-auto px-4 self-center not-prose gap-2">
             <div className="w-full rounded-lg">
                 <div className="rounded-lg">
-                    <div className="relative h-full aspect-video rounded-lg">
+                    <div className="relative h-full aspect-[4/5] tablet:aspect-video rounded-lg">
                         {images && (
                             <img
                                 alt={images[indexImage]}
                                 src={images[indexImage]}
 
-                                className={`absolute  w-full  rounded-lg object-contain aspect-video transition-opacity opacity-100 ease-in-out ${imageLoaded ? "opacity-0" : "opacity-100"} `}
+                                className={`absolute  w-full  rounded-lg object-cover tablet:object-contain  aspect-[4/5] tablet:aspect-video  transition-opacity opacity-100 ease-in-out ${imageLoaded ? "opacity-0" : "opacity-100"} `}
                             />
                         )}
                         {images && (
@@ -70,7 +70,7 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                                 alt={images[indexNextImage]}
                                 src={images[indexNextImage]}
 
-                                className={`absolute w-full rounded-lg object-contain aspect-video transition-opacity ease-in-out ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+                                className={`absolute w-full rounded-lg object-cover tablet:object-contain  aspect-[4/5] tablet:aspect-video  transition-opacity ease-in-out ${imageLoaded ? "opacity-100" : "opacity-0"}`}
                             />
                         )}
                     </div>

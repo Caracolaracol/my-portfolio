@@ -1,0 +1,56 @@
+---
+pubDate: 2024-23-06
+author: Agustin Rojas
+title: My Notes
+description: "Embark on a cosmic journey with astro.js, the framework that makes interstellar development a breeze. Pair it with Tailwind CSS for a design that's out of this world"
+images:
+    [
+
+    ]
+---
+
+import ProjectImages from "../../components/atoms/ProjectImages.tsx";
+import expo from "@/assets/icons/expo.svg";
+import tauri from "@/assets/icons/tauri.svg";
+import react from "@/assets/icons/react.svg";
+import rust from "@/assets/icons/rust-color.svg";
+import TypeScript  from "@/assets/icons/typescript.svg";
+import { Image } from "astro:assets";
+
+<ProjectImages client:only images={frontmatter.images} />
+
+
+I'm developing this note-taking app to fit my workflow and creative processes. Unlike other apps, this one meets specific needs for both my development work and writing.
+
+The app offers a distraction-free environment, allowing users to focus on their tasks. Its intuitive interface makes all features easily accessible, making it ideal for developers and writers. Whether you're taking quick notes, drafting project plans, or writing stories, this app supports your productivity and creativity.
+
+
+<div className="not-prose">
+<div> <p className="font-chrono text-platinum text-4xl tracking-wide ">Stack</p></div>
+<div className="flex gap-2">
+
+<Image
+    src={tauri}
+    alt="tauri"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={TypeScript}
+    alt="wordpress"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={rust}
+    alt="rust"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+<Image
+    src={react}
+    alt="react"
+    class="rounded-md w-12 tablet:w-16 laptop:w-16"
+/>
+
+
+</div>
+
+</div>

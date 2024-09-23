@@ -21,6 +21,7 @@ function HomeLinks() {
         refLinks.current.style.opacity = "0";
         refLinks.current.style.visibility = "hidden";
     };
+    
     return (
         <>
             <ul className="flex shrink gap-2 ">
