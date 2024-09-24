@@ -27,6 +27,8 @@ export default {
 			dark: "#232031", // DARK
 			snow: "#F4EFF1", // LIGHT
 
+
+			cerisedark:"#502b41"
 			/* 
 			
 			// COLORS

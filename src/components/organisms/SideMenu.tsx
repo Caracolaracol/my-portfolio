@@ -4,6 +4,7 @@ import { useStore } from "@nanostores/react"
 import CategoryTitle from "../atoms/CategoryTitle"
 import ProjectLink from "../atoms/ProjectLink"
 import { BLOG_ENTRIES, POSTS, POST_CATEGORIES } from "@/config/posts"
+import logo from '@/assets/logo.png'
 
 
 function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: string }) {
@@ -76,18 +77,27 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
                   */}
                 <div className="">
                     <div className="">
-                        <ul className="flex justify-between px-8  w-[14rem] h-10 mx-auto  font-tommyMedium text-xl text-platinum items-center mt-12">
+                        <ul className="flex justify-between w-[17rem] h-10 mx-auto  font-tommyMedium text-xl text-platinum items-center mt-8 widescreen:mt-10">
                             {/* <li className="">Login</li> */}
-                            <a href="/blog"><li className="" onMouseEnter={handlerMouseLinks}
+                            <a
+                                href="/"
+                                className="invisible laptop:visible z-50 mr-4 cursor-pointer"
+                            >
+                                <img
+                                    src={logo.src}
+                                    className="w-16 tablet:w-[3.9rem] drop-shadow-md transition-opacity-1"
+                                    alt="caracol"
+                                />
+                            </a>
+                            <a href="/blog" className={`${pathname.includes("/blog") && 'bg-cerisedark'} cursor-pointer p-2 rounded-t-md rounded-bl-md`}><li className="" onMouseEnter={handlerMouseLinks}
                                 onMouseLeave={handlerLeaveLinks} >Blog</li></a>
-                            <a href="/portfolio"><li className="" onMouseEnter={handlerMouseLinks}
+                            <a href="/portfolio" className={`${pathname.includes("/portfolio") && 'bg-cerisedark cursor-pointer transition-colors'} p-2 rounded-t-md rounded-br-md`}><li className="" onMouseEnter={handlerMouseLinks}
                                 onMouseLeave={handlerLeaveLinks} >Portfolio</li></a>
                             {/* <li className=" text-5xl font-semibold font-chrono">{'<'}</li> */}
                         </ul>
-                        
                         <div
                             ref={refLinks}
-                            className={`bg-cerise/20 absolute left-[var(--left)] top-[var(--top)] z-50 h-[var(--height)] w-[var(--width)] rounded-md opacity-25 backdrop-blur-lg transition-all duration-300 ease-in-out`}
+                            className={`bg-cerisedark absolute left-[var(--left)] top-[var(--top)] z-50 h-[var(--height)] w-[var(--width)] rounded-md opacity-25 backdrop-blur-lg transition-all duration-300 ease-in-out`}
                         ></div>
                     </div>
                     <ul className={`${showSideMenu ? 'relative' : 'hidden tablet:flex flex-col'}  p-1 pl-3  w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all `}>
