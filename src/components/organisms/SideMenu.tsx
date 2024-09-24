@@ -6,14 +6,15 @@ import ProjectLink from "../atoms/ProjectLink"
 import { BLOG_ENTRIES, POSTS, POST_CATEGORIES } from "@/config/posts"
 
 
-function SideMenu({ blogEntries }: { blogEntries: any }) {
+function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: string }) {
+    const refLinks = useRef<HTMLDivElement | any>(null);
     const wrapperRef = useRef<any>(null)
     const ulRef = useRef<any>(null)
     const showSideMenu = useStore(showSideMenuAtom)
     const isShowingSideMenu = useStore(isShowingSideMenuAtom)
     const hideSideMenuAnimation = useStore(hideSideMenuAnimationAtom)
     const showProjectList = useStore(showProjectListAtom)
-
+    console.log(pathname)
     // SHOW AND HIDE SIDE MENU HANDLER
     useEffect(() => {
         const sideMenuHandler = () => {
@@ -44,6 +45,23 @@ function SideMenu({ blogEntries }: { blogEntries: any }) {
     }, [wrapperRef, isShowingSideMenu]);
     //
 
+    const handlerMouseLinks = (event: any) => {
+        // BG ANIMATED OF FOOTER LINKS
+        const { left, top, width, height }: any =
+            event.target.getBoundingClientRect();
+        refLinks.current.style.opacity = "1";
+        refLinks.current.style.visibility = "visible";
+        refLinks.current?.style.setProperty("--left", `${left}px`);
+        refLinks.current?.style.setProperty("--top", `${top + 28}px`);
+        refLinks.current?.style.setProperty("--width", `${width}px`);
+        refLinks.current?.style.setProperty("--height", `${height - 22}px`);
+    };
+
+    const handlerLeaveLinks = () => {
+        // Leave mouse of the footer links
+        refLinks.current.style.opacity = "0";
+        refLinks.current.style.visibility = "hidden";
+    };
 
     return (
         <>
@@ -57,27 +75,38 @@ function SideMenu({ blogEntries }: { blogEntries: any }) {
                 </div>
                   */}
                 <div className="">
-                   
-                    <ul className={`${showSideMenu ? 'relative' : 'hidden tablet:flex flex-col'}  p-1 pl-3  w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all mt-10 `}>
-                        <div className="mt-2">
+                    <div className="">
+                        <ul className="flex justify-between px-8  w-[14rem] h-10 mx-auto  font-tommyMedium text-xl text-platinum items-center mt-12">
+                            {/* <li className="">Login</li> */}
+                            <a href="/blog"><li className="" onMouseEnter={handlerMouseLinks}
+                                onMouseLeave={handlerLeaveLinks} >Blog</li></a>
+                            <a href="/portfolio"><li className="" onMouseEnter={handlerMouseLinks}
+                                onMouseLeave={handlerLeaveLinks} >Portfolio</li></a>
+                            {/* <li className=" text-5xl font-semibold font-chrono">{'<'}</li> */}
+                        </ul>
+                        
+                        <div
+                            ref={refLinks}
+                            className={`bg-cerise/20 absolute left-[var(--left)] top-[var(--top)] z-50 h-[var(--height)] w-[var(--width)] rounded-md opacity-25 backdrop-blur-lg transition-all duration-300 ease-in-out`}
+                        ></div>
+                    </div>
+                    <ul className={`${showSideMenu ? 'relative' : 'hidden tablet:flex flex-col'}  p-1 pl-3  w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all `}>
+
+                        {pathname.includes("/portfolio") ? (<><div className="mt-2">
                             <ProjectLink to={`/portfolio`}>Introduction</ProjectLink>
                         </div>
-                        {POST_CATEGORIES.map(cat => (
-                            <div key={cat.title} className="my-2">
-                                <CategoryTitle>{cat.title}</CategoryTitle>
-                                {POSTS[cat.title].map(POST => <ProjectLink key={POST.title} to={`/portfolio/${POST.link}`}>{POST.title}</ProjectLink>)}
+                            {POST_CATEGORIES.map(cat => (
+                                <div key={cat.title} className="my-2">
+                                    <CategoryTitle>{cat.title}</CategoryTitle>
+                                    {POSTS[cat.title].map(POST => <ProjectLink key={POST.title} to={`/portfolio/${POST.link}`}>{POST.title}</ProjectLink>)}
+                                </div>
+                            ))}</>)
+                            : <div className="my-2">
+                                <CategoryTitle>Blog</CategoryTitle>
+                                {blogEntries.map((POST: any) => <ProjectLink key={POST.id} to={`/blog/${POST.slug}`}>{POST.data.title}</ProjectLink>)}
                             </div>
-                        ))}
-                        <div className="my-2">
-                            <CategoryTitle>Blog</CategoryTitle>
-                            {blogEntries.map((POST: any) => <ProjectLink key={POST.id} to={`/blog/${POST.slug}`}>{POST.data.title}</ProjectLink>)}
-                        </div>
-                        {/* <div className="absolute bottom-0 left-0 right-0">
-                        <ul className="flex justify-between px-8 h-full py-2 my-2 font-chrono text-3xl text-raisinblack items-center">
-                        <li className="my-4">Login</li>
-                        <li className="my-4 text-7xl font-semibold">{'<'}</li>
-                        </ul>
-                        </div> */}
+                        }
+
                     </ul>
                 </div>
             </aside>

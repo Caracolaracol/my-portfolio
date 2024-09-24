@@ -236,4 +236,11 @@
             display: flex;
         }
     }
+    @layer utilities {
+
+      .title_clip {
+        --p: 50px;
+        clip-path: polygon(var(--p) 100%,calc(100% - var(--p)) 100%,100% 0,0 0);
+      }
+  }
 }
