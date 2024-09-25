@@ -90,6 +90,10 @@
         background-attachment: local;
     }
 
+    .background_noise_dark_firefox {
+      background-image: url("/bgnoisedarkff.svg");
+      background-attachment: local;
+  }
     /* Circle Image */
     .circle_img_1 {
         position: absolute;

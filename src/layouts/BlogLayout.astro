@@ -19,3 +19,12 @@ const { entry } = Astro.props;
     </div>
   </main>
 </MainLayout>
+<script is:inline>
+ document.addEventListener("DOMContentLoaded", function() {
+       if (navigator.userAgent.toLowerCase().includes('firefox')) {
+    document.body.classList.add('dark:background_noise_dark_firefox');
+  } else {
+    document.body.classList.add('dark:background_noise_dark');
+  }
+})
+</script>

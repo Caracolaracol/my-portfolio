@@ -28,7 +28,7 @@ const blogEntries = await getCollection("posts");
     <ViewTransitions />
   </head>
   <body
-    class={`background_noise dark:background_noise_dark  dark:text-platinum text-raisinblack dark:bg-dark bg-dark`}
+    class={` dark:text-platinum text-raisinblack dark:bg-dark bg-dark`}
   >
     <div
       class={`${pathname == "/" ? "flex h-screen select-none flex-col justify-center" : "relative flex min-h-screen flex-col justify-between"}`}
@@ -66,6 +66,13 @@ const blogEntries = await getCollection("posts");
       }
     </div>
     <script is:inline>
+      document.addEventListener("DOMContentLoaded", function() {
+       if (navigator.userAgent.toLowerCase().includes('firefox')) {
+    document.body.classList.add('dark:background_noise_dark_firefox');
+  } else {
+    document.body.classList.add('dark:background_noise_dark');
+  }
+})
       // Necessary for view transitions
       document.addEventListener("astro:after-swap", () => {
         if (
@@ -75,6 +82,11 @@ const blogEntries = await getCollection("posts");
         ) {
           document.documentElement.classList.add("dark");
         }
+        if (navigator.userAgent.toLowerCase().includes('firefox')) {
+    document.body.classList.add('dark:background_noise_dark_firefox');
+  } else {
+    document.body.classList.add('dark:background_noise_dark');
+  }
       });
       if (
         localStorage.theme === "dark" ||
@@ -85,6 +97,8 @@ const blogEntries = await getCollection("posts");
       } else {
         document.documentElement.classList.remove("dark");
       }
+      
+      
     </script>
   </body>
 </html>

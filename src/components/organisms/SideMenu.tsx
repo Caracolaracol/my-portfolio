@@ -15,8 +15,8 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
     const isShowingSideMenu = useStore(isShowingSideMenuAtom)
     const hideSideMenuAnimation = useStore(hideSideMenuAnimationAtom)
     const showProjectList = useStore(showProjectListAtom)
-    console.log(pathname)
     // SHOW AND HIDE SIDE MENU HANDLER
+
     useEffect(() => {
         const sideMenuHandler = () => {
             if (isShowingSideMenu == true) {
