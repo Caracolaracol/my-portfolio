@@ -75,9 +75,9 @@ export const POSTS: { [key in "Web" | "Apps" | "Videos" | "Art" | "Coding"]: Pos
     {
       title: "Hojas",
       date: "2024-10-10",
-      description: "notes",
-      link: "notes",
-      slug: "notes",
+      description: "hojas",
+      link: "hojas",
+      slug: "hojas",
     },
   ],
   Videos: [
