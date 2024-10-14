@@ -27,30 +27,30 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
     };
 
     
-      useEffect(() => {
-          if (images) {
-              const interval = setInterval(() => {
-                  if ((images.length - 1) == indexImage){
-                      setIndexNextImage(0)
-                  } else {
-                      setIndexNextImage(indexImage + 1)
-                  }
-                  setImageLoaded(true)
-                  setTimeout(() => {
-                      setImageLoaded(false);
-                      if((images.length - 1) > indexImage){
-                          setIndexImage((prevState) => prevState + 1)
-                      } else {
-                          setIndexImage(0);
-                      }
-                  },150)
-  
-              }, 3500)
-              return () => {
-                  clearInterval(interval)
-              }
-          }
-      }, [images, indexImage])
+    useEffect(() => {
+        if (images) {
+            const interval = setInterval(() => {
+                if ((images.length - 1) == indexImage) {
+                    setIndexNextImage(0)
+                } else {
+                    setIndexNextImage(indexImage + 1)
+                }
+                setImageLoaded(true)
+                setTimeout(() => {
+                    setImageLoaded(false);
+                    if ((images.length - 1) > indexImage) {
+                        setIndexImage((prevState) => prevState + 1)
+                    } else {
+                        setIndexImage(0);
+                    }
+                }, 150)
+
+            }, 3500)
+            return () => {
+                clearInterval(interval)
+            }
+        }
+    }, [images, indexImage])
 
     return (
         <div className="flex flex-col laptop:flex-row laptop:items-center w-[100%] mx-auto px-4 self-center not-prose gap-2">
@@ -77,7 +77,7 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                 </div>
             </div>
             <div className="laptop:h-[100%] laptop:mx-0 w-[100%] laptop:w-[12.7%]  rounded-md">
-                <div className="grid grid-cols-4 w-[75%] mx-auto laptop:mx-0 laptop:w-[100%] laptop:grid-cols-1 place-content-around laptop:place-content-center h-full">
+                <div className={`grid grid-cols-4 w-[75%] mx-auto laptop:mx-0 laptop:w-[100%] laptop:grid-cols-1 place-content-around laptop:place-content-center h-full`}>
                     {images &&
                         images?.map((image, idx) => (
                             <button
@@ -94,15 +94,15 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                                 />
                             </button>
                         ))}
-                    {images && images.length == 2 && (
+                    {/* {images && images.length == 2 && (
                         <>
-                            <span className="mx-[0.2em] laptop:mx-0 aspect-square border-2  border-opacity-0 rounded-md overflow-hidden block"></span>
-                            <span className="mx-[0.2em] laptop:mx-0 aspect-square border-2  border-opacity-0 rounded-md  overflow-hidden block"></span>
+                            <span className="mx-[0.2em] laptop:mx-0 aspect-square  border-opacity-0 rounded-md overflow-hidden block"></span>
+                            <span className="mx-[0.2em] laptop:mx-0 aspect-square  border-opacity-0 rounded-md  overflow-hidden block"></span>
                         </>
                     )}
                     {images && images.length == 3 && (
                         <span className="mx-[0.2em] laptop:mx-0 aspect-square  rounded-md  overflow-hidden block"></span>
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>
