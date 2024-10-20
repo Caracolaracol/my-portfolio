@@ -62,7 +62,7 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                                 alt={images[indexImage]}
                                 src={images[indexImage]}
 
-                                className={`absolute  w-full  rounded-lg object-cover tablet:object-contain  aspect-[4/5] tablet:aspect-video  transition-opacity opacity-100 ease-in-out ${imageLoaded ? "opacity-0" : "opacity-100"} `}
+                                className={`absolute  w-full  rounded-lg object-cover tablet:object-cover  aspect-[4/5] tablet:aspect-video  transition-opacity opacity-100 ease-in-out ${imageLoaded ? "opacity-0" : "opacity-100"} `}
                             />
                         )}
                         {images && (
@@ -70,7 +70,7 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                                 alt={images[indexNextImage]}
                                 src={images[indexNextImage]}
 
-                                className={`absolute w-full rounded-lg object-cover tablet:object-contain  aspect-[4/5] tablet:aspect-video  transition-opacity ease-in-out ${imageLoaded ? "opacity-100" : "opacity-0"}`}
+                                className={`absolute w-full rounded-lg object-cover tablet:object-cover  aspect-[4/5] tablet:aspect-video  transition-opacity ease-in-out ${imageLoaded ? "opacity-100" : "opacity-0"}`}
                             />
                         )}
                     </div>

@@ -13,5 +13,12 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
+  },
+  image:{
+    domains: ['supabase.com'],
+    remotePatterns: [{
+      protocol: 'https',
+      hostname: '**.supabase.co',
+    }],
   }
 });

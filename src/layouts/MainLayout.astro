@@ -9,10 +9,15 @@ import logo from "@/assets/logo.png";
 import { ViewTransitions } from "astro:transitions";
 import SideMenuButton from "@/components/atoms/SideMenuButton";
 import { getCollection } from "astro:content";
+
+
+
 const { title } = Astro.props;
 let pathname = Astro.url.pathname;
 let params = Astro.params;
 const blogEntries = await getCollection("posts");
+
+
 ---
 
 <!doctype html>
