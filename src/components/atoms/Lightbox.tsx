@@ -9,7 +9,7 @@ export default function LightboxImages({ images, children }: any) {
   const [closeOnBackdropClick, setCloseOnBackdropClick] = React.useState(true);
   return (
     <>
-      <div className='w-[80%] not-prose' onClick={() => setOpen(true)}>
+      <div className='' onClick={() => setOpen(true)}>
         {children}
       </div>
       <Lightbox
