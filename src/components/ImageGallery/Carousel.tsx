@@ -56,8 +56,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex  touch-pan-y touch-pinch-zoom ml-[-1rem]">
           {imagesData && imagesData.map((photoURL) => (
-            <div className="embla__slide flex grow-0 shrink-0 basis-[100%] items-center justify-center pl-[1rem]" key={photoURL.src}>
-              <img src={photoURL.src} alt="" className='rounded-sm flex items-center justify-center h-[32rem] select-none object-cover'/>
+            <div className="embla__slide flex grow-0 shrink-0 basis-[100%] items-center justify-center pl-[1rem] rounded-xl" key={photoURL.src}>
+              <img src={photoURL.src} alt="" className='rounded-xl border-[1px] border-raisinblack shadow-dark border-opacity-20 flex items-center justify-center h-[32rem] select-none object-cover'/>
             </div>
           ))}
         </div>
