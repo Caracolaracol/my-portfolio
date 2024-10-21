@@ -41,6 +41,7 @@
     font-display: block;
 }
 
+
 @layer base {
     :root {
         -webkit-font-smoothing: antialiased;
@@ -217,6 +218,21 @@
     100% {
       transform: translate(-270px, 0);
     }
+  }
+  @keyframes grow {
+    0% {
+      width: 76vw;
+      height: 90vh;
+    }
+    100% {
+      width: 100%;
+      height: 100%;
+      top:0
+    }
+  }
+  
+  .animate-grow {
+    animation: grow 1s ease-in-out forwards;
   }
 }
 

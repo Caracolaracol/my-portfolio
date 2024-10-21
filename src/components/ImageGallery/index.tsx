@@ -7,7 +7,7 @@ function ImageGallery({ slides }: any) {
   const isColorGallery = useStore(isColorGalleryAtom)
 console.log(isColorGallery)
   return (
-    <div className="bg-dark w-full h-full absolute z-40 top-0 left-0">
+    <div className="bg-dark absolute z-40 right-0 top-6 w-[76vw] h-[90vh] animate-grow">
       <div style={isColorGallery ? { backgroundColor: isColorGallery + '99' } : {}} className={`absolute z-50 transition-color  top-0 left-0 w-full h-full duration-1000 ${!isColorGallery ? 'bg-raisinblack' : ''} `}>
         <div>
           <div className="bg-cerise my-10 pt-10 flex flex-col h-[5rem] justify-center px-8">
