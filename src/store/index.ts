@@ -13,3 +13,6 @@ export const showProjectListAtom = atom<boolean>(false)
 export const isShowingNavBarMenuAtom = atom<boolean>(false)
 export const showNavBarMenuAtom = atom<boolean>(false)
 export const hideNavBarMenuAtom = atom<boolean>(false)
+
+// Color gallery
+export const isColorGalleryAtom = atom<string>('')

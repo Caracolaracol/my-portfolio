@@ -6,27 +6,29 @@ description: "Embark on a cosmic journey with astro.js, the framework that makes
 images: [
         "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_2292%201.jpg",
         "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_2454.jpg",
-        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_2588.jpg?t=2024-10-20T19%3A46%3A54.946Z",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_2588.jpg",
         "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_2868%20(1).jpg",
         "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_3079.jpg",
         "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_3221%202.jpg",
         "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_3419.jpg",
-        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_3494.jpg?t=2024-10-20T19%3A47%3A49.281Z",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_3494.jpg",
         "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_3501%202.jpg",
-        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_4493.jpg?t=2024-10-20T19%3A48%3A07.651Z",
-        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_4493.jpg?t=2024-10-20T19%3A48%3A07.651Z",
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_4493.jpg",
         "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_4562.jpg",
-        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_4740%202.jpg?t=2024-10-20T19%3A48%3A33.315Z"
+        "https://xvifyrqivqsozuhckqte.supabase.co/storage/v1/object/public/Images/macrophoto/_MG_4740%202.jpg"
         ]
 ---
 
-import { Image } from "astro:assets";
-import LightboxImages from '../../components/atoms/Lightbox.tsx'
+import ImageGallery from '../../components/ImageGallery/index.tsx'
  
-Although I primarily work as a software engineer, photography has become a way for me to explore my into my creative side. This gallery showcases my work as a macro photographer, with a focus on bugs. Rather than aiming for extreme close-ups, I’m more interested in capturing the character of the subject and how it interacts with its surroundings.
 
-Whether it’s the texture of a leaf or the lines of a branch, I spend hours waiting for the right moment. It’s almost meditative, watching and waiting for the insect to settle into the perfect position, where it naturally blends with and expresses something unique within its environment.
 
+
+  <ImageGallery slides={frontmatter.images} client:load/>
+
+
+
+{/* 
 <div className='not-prose flex flex-col gap-4'>
 <div className='flex justify-around flex-col tablet:flex-row'>
   <div class="flex justify-end items-end tablet:p-4 tablet:w-1/3 ">
@@ -247,4 +249,4 @@ Whether it’s the texture of a leaf or the lines of a branch, I spend hours wai
 
 
 
-</div>
+</div> */}
