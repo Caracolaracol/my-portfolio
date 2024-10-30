@@ -219,21 +219,77 @@
       transform: translate(-270px, 0);
     }
   }
-  @keyframes grow {
+  @keyframes grow95 {
     0% {
-      width: 76vw;
+      width: 95%;
       height: 90vh;
     }
     100% {
       width: 100%;
       height: 100%;
-      top:0
+      top:0;
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+    }
+  }
+  @keyframes grow92 {
+    0% {
+      width: 92%;
+      height: 90vh;
+    }
+    100% {
+      width: 100%;
+      height: 100%;
+      top:0;
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+    }
+  }
+  @keyframes grow90 {
+    0% {
+      width: 90%;
+      height: 90vh;
+    }
+    100% {
+      width: 100%;
+      height: 100%;
+      top:0;
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+    }
+  }
+  @keyframes grow91 {
+    0% {
+      width:  84%;
+      height: 90vh;
+      opacity: 0;
+    }
+    10%{
+      opacity: 1;
+    }
+    100% {
+      width: 100%;
+      height: 100%;
+      top:0;
+      padding-left: 0 !important;
+      margin-left: 0 !important;
     }
   }
   
-  .animate-grow {
-    animation: grow 1s ease-in-out forwards;
+  .animate-grow-95 {
+    animation: grow95 1s ease-in-out forwards;
   }
+  .animate-grow-92 {
+    animation: grow92 1s ease-in-out forwards;
+  }
+  .animate-grow-90 {
+    animation: grow90 1s ease-in-out forwards;
+  }
+
+  .animate-grow-91 {
+    animation: grow91 1s ease-in-out forwards;
+  }
+
 }
 
 @layer utilities {

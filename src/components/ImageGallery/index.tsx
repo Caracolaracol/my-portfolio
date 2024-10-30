@@ -7,11 +7,11 @@ function ImageGallery({ slides }: any) {
   const isColorGallery = useStore(isColorGalleryAtom)
 console.log(isColorGallery)
   return (
-    <div className="bg-dark absolute z-40 right-0 top-6 w-[76vw] h-[90vh] animate-grow">
+    <div className="bg-dark background_noise_dark_firefox absolute z-40 right-0 top-6   tablet:w-[92%] tablet:animate-grow-92 laptop:w-[90%] laptop:animate-grow-90 desktop:animate-grow-91 desktop:w-[91%]  fullhd:mx-auto flex w-[95%] animate-grow-95">
       <div style={isColorGallery ? { backgroundColor: isColorGallery + '99' } : {}} className={`absolute z-50 transition-color  top-0 left-0 w-full h-full duration-1000 ${!isColorGallery ? 'bg-raisinblack' : ''} `}>
         <div>
           <div className="bg-cerise my-10 pt-10 flex flex-col h-[5rem] justify-center px-8">
-            <h1 className="tablet:tracking-wide tablet:text-5xl laptop:text-5xl desktop:text-5xl laptop:tracking-normal cursor-default text-[2.4rem]">
+            <h1 className="tablet:tracking-wide font-tommyRegular text-platinum tablet:text-5xl laptop:text-5xl desktop:text-5xl laptop:tracking-normal cursor-default text-[2.4rem]">
               Macro Photography
             </h1>
           </div>

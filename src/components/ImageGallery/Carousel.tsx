@@ -52,19 +52,19 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   }, [slides])
 
   return (
-    <section className="m-auto max-w-[95vw]">
+    <section className="m-auto max-w-[95vw] not-prose ">
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex  touch-pan-y touch-pinch-zoom ml-[-1rem]">
+        <div className="embla__container flex  touch-pan-y touch-pinch-zoom ml-[-1rem] ">
           {imagesData && imagesData.map((photoURL) => (
             <div className="embla__slide flex grow-0 shrink-0 basis-[100%] items-center justify-center pl-[1rem] rounded-xl" key={photoURL.src}>
-              <img src={photoURL.src} alt="" className='rounded-xl border-[1px] border-raisinblack shadow-dark border-opacity-20 flex items-center justify-center h-[32rem] select-none object-cover'/>
+              <img src={photoURL.src} alt="" className='rounded-xl border-[1px] border-raisinblack shadow-dark border-opacity-20 flex items-center justify-center max-h-[40svh] tablet:max-h-[52svh] laptop:max-h-[55svh] desktop:max-h-[56svh] select-none object-cover'/>
             </div>
           ))}
         </div>
       </div>
 
 
-        <div className="w-full flex justify-center gap-32 mt-4">
+        <div className="w-full flex justify-center gap-32 mt-10 desktop:mt-12">
           <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>
