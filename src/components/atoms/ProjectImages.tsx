@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function ProjectImages({ images }: { images: string[] | undefined }) {
+function ProjectImages({ images, fromArt = false }: { images: string[] | undefined }) {
     const [indexImage, setIndexImage] = useState<number>(0);
     const [indexNextImage, setIndexNextImage] = useState<number>(0);
     const [imageLoaded, setImageLoaded] = useState(false);
