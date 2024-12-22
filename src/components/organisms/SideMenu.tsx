@@ -11,23 +11,27 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
     const refLinks = useRef<HTMLDivElement | any>(null);
     const wrapperRef = useRef<any>(null)
     const ulRef = useRef<any>(null)
+    const [showState, setShowState] = useState(false)
     const showSideMenu = useStore(showSideMenuAtom)
     const isShowingSideMenu = useStore(isShowingSideMenuAtom)
     const hideSideMenuAnimation = useStore(hideSideMenuAnimationAtom)
     const showProjectList = useStore(showProjectListAtom)
     // SHOW AND HIDE SIDE MENU HANDLER
 
-    useEffect(() => {
-        const sideMenuHandler = () => {
-            if (isShowingSideMenu == true) {
-                hideSideMenuAnimationAtom.set(true)
-                setTimeout(() => {
-                    showSideMenuAtom.set(false)
-                    isShowingSideMenuAtom.set(false)
-                    hideSideMenuAnimationAtom.set(false)
-                }, 452);
-            }
+    const sideMenuHandler = async () => {
+        console.log(isShowingSideMenu)
+        console.log(showSideMenu)
+        if (isShowingSideMenu == true) {
+            hideSideMenuAnimationAtom.set(true)
+            setTimeout(() => {
+                showSideMenuAtom.set(false)
+                isShowingSideMenuAtom.set(false)
+                hideSideMenuAnimationAtom.set(false)
+            }, 452);
         }
+    }
+
+    useEffect(() => {
         function handleClickOutside(event: any) {
             if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
                 sideMenuHandler()
@@ -43,7 +47,7 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
             document.removeEventListener("mousedown", handleClickOutside);
         };
 
-    }, [wrapperRef, isShowingSideMenu]);
+    }, [wrapperRef, isShowingSideMenu, showSideMenu]);
     //
 
     const handlerMouseLinks = (event: any) => {
@@ -68,7 +72,7 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
         <>
             <aside
                 ref={wrapperRef}
-                className={`${showSideMenu ? "!block showSideMenu" : "w-0.5"} ${hideSideMenuAnimation ? "hideSideMenu" : ""} overflow-auto  z-30 h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 `}> {/*  overflow-y-scroll  */}
+                className={`${showSideMenu ? "!block showSideMenu bg-raisinblack" : "w-0.5 bg-opacity-0"} ${hideSideMenuAnimation ? "hideSideMenu" : ""} overflow-auto  z-30 h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 `}> {/*  overflow-y-scroll  */}
                 {/* <div className='mx-3 border-b-[1px] h-[54px]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex'>
                 </div>
                 <div className={`fixed bg-cerise border-b-[1px] h-[54px]  top-0 left-0 laptop:w-[26vw] desktop:w-[21rem]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex justify-end`}>
@@ -81,17 +85,17 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
                             {/* <li className="">Login</li> */}
                             <a
                                 href="/"
-                                className="invisible laptop:visible z-50 mr-4 cursor-pointer"
+                                className=" ml-4 z-50 tablet:mr-4 cursor-pointer"
                             >
                                 <img
                                     src={logo.src}
-                                    className="w-16 tablet:w-[3.9rem] drop-shadow-md transition-opacity-1"
+                                    className="w-16 tablet:w-[3.9rem] drop-shadow-md transition-opacity-1 z-50"
                                     alt="caracol"
                                 />
                             </a>
                             <a href="/blog" className={`${pathname.includes("/blog") && 'bg-cerisedark'} cursor-pointer p-2 rounded-t-md rounded-bl-md`}><li className="" onMouseEnter={handlerMouseLinks}
                                 onMouseLeave={handlerLeaveLinks} >Blog</li></a>
-                            <a href="/portfolio" className={`${pathname.includes("/portfolio") && 'bg-cerisedark cursor-pointer transition-colors'} p-2 rounded-t-md rounded-br-md`}><li className="" onMouseEnter={handlerMouseLinks}
+                            <a href="/portfolio" className={`${pathname.includes("/portfolio") && 'bg-cerisedark cursor-pointer transition-colors'} p-2 mr-4 tablet:mr-2 laptop:mr-0 rounded-t-md rounded-br-md`}><li className="" onMouseEnter={handlerMouseLinks}
                                 onMouseLeave={handlerLeaveLinks} >Portfolio</li></a>
                             {/* <li className=" text-5xl font-semibold font-chrono">{'<'}</li> */}
                         </ul>
@@ -103,17 +107,17 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
                     <ul className={`${showSideMenu ? 'relative' : 'hidden tablet:flex flex-col'}  p-1 pl-3  w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all `}>
 
                         {pathname.includes("/portfolio") ? (<><div className="mt-2">
-                            <ProjectLink to={`/portfolio`}>Introduction</ProjectLink>
+                            <ProjectLink to={`/portfolio`} sideMenuHandler={sideMenuHandler}>Introduction</ProjectLink>
                         </div>
                             {POST_CATEGORIES.map(cat => (
                                 <div key={cat.title} className="my-2">
                                     <CategoryTitle>{cat.title}</CategoryTitle>
-                                    {POSTS[cat.title].map(POST => <ProjectLink key={POST.title} to={`/portfolio/${POST.link}`}>{POST.title}</ProjectLink>)}
+                                    {POSTS[cat.title].map(POST => <ProjectLink key={POST.title} sideMenuHandler={sideMenuHandler} to={`/portfolio/${POST.link}`}>{POST.title}</ProjectLink>)}
                                 </div>
                             ))}</>)
                             : <div className="my-2">
                                 <CategoryTitle>Blog</CategoryTitle>
-                                {blogEntries.map((POST: any) => <ProjectLink key={POST.id} to={`/blog/${POST.slug}`}>{POST.data.title}</ProjectLink>)}
+                                {blogEntries.map((POST: any) => <ProjectLink key={POST.id} sideMenuHandler={sideMenuHandler} to={`/blog/${POST.slug}`}>{POST.data.title}</ProjectLink>)}
                             </div>
                         }
 

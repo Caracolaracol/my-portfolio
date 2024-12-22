@@ -100,6 +100,9 @@
         position: absolute;
         z-index: 99;
         clip-path: circle();
+        mask-image: radial-gradient(circle, rgb(0, 0, 0) 58%, transparent 65%);
+        -webkit-mask-image: radial-gradient(circle, rgb(0, 0, 0) 58%, transparent 65%);
+        border-radius: 9999px;
     }
 
     .circle_img_2 {

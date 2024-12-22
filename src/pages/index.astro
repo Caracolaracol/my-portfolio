@@ -3,6 +3,9 @@ import ParticleInit from "../components/atoms/ParticleInit";
 import CircleImages from "../components/atoms/CircleImages";
 import HomeLinks from "../components/molecules/HomeLinks";
 import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import yo1 from "@/assets/images/yo4.jpg";
+import yo2 from "@/assets/images/yo5.jpg";
 const styles = "font-chrono text-2xl tablet:text-3xl laptop:text-4xl p-2";
 ---
 
@@ -16,7 +19,8 @@ const styles = "font-chrono text-2xl tablet:text-3xl laptop:text-4xl p-2";
     class="home__transition mb-12 flex flex-col items-center justify-center self-center"
   >
     <header class="mb-4 flex h-[237px] w-64 justify-center">
-      <CircleImages client:load />
+      <!-- <CircleImages client:load /> -->
+      <Image src={yo2} alt="Caracolaracol logo" class='relative rounded-full circle_img_1 object-cover'/>
     </header>
     <main
       class="z-50 flex flex-col flex-nowrap justify-evenly px-2 text-center"
