@@ -1,43 +1,29 @@
-import { useEffect, useRef, useState } from "react"
-import { hideSideMenuAnimationAtom, isShowingSideMenuAtom, showProjectListAtom, showSideMenuAtom } from "@/store"
+import { useEffect, useRef } from "react"
 import { useStore } from "@nanostores/react"
 import CategoryTitle from "../atoms/CategoryTitle"
 import ProjectLink from "../atoms/ProjectLink"
-import { BLOG_ENTRIES, POSTS, POST_CATEGORIES } from "@/config/posts"
+import {  POSTS, POST_CATEGORIES } from "@/config/posts"
 import logo from '@/assets/logo.png'
+import { showProjectListAtom, stateSideMenuAtom } from "@/store"
 
 
 function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: string }) {
     const refLinks = useRef<HTMLDivElement | any>(null);
     const wrapperRef = useRef<any>(null)
     const ulRef = useRef<any>(null)
-    const [showState, setShowState] = useState(false)
-    const showSideMenu = useStore(showSideMenuAtom)
-    const isShowingSideMenu = useStore(isShowingSideMenuAtom)
-    const hideSideMenuAnimation = useStore(hideSideMenuAnimationAtom)
-    const showProjectList = useStore(showProjectListAtom)
-    // SHOW AND HIDE SIDE MENU HANDLER
+    const stateSideMenu = useStore(stateSideMenuAtom)
+    const showProjectList = useStore(showProjectListAtom) 
 
-    const sideMenuHandler = async () => {
-        console.log(isShowingSideMenu)
-        console.log(showSideMenu)
-        if (isShowingSideMenu == true) {
-            hideSideMenuAnimationAtom.set(true)
-            setTimeout(() => {
-                showSideMenuAtom.set(false)
-                isShowingSideMenuAtom.set(false)
-                hideSideMenuAnimationAtom.set(false)
-            }, 452);
-        }
-    }
-
+    useEffect(() => {
+        stateSideMenuAtom.set('hidden')
+    },[])
     useEffect(() => {
         function handleClickOutside(event: any) {
             if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-                sideMenuHandler()
+                sideMenuHandler(true)
             }
             if (ulRef.current && ulRef.current.contains(event.target)) {
-                sideMenuHandler()
+                sideMenuHandler(true)
             }
         }
         // Bind the event listener
@@ -47,7 +33,7 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
             document.removeEventListener("mousedown", handleClickOutside);
         };
 
-    }, [wrapperRef, isShowingSideMenu, showSideMenu]);
+    }, [wrapperRef, stateSideMenu]);
     //
 
     const handlerMouseLinks = (event: any) => {
@@ -68,21 +54,35 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
         refLinks.current.style.visibility = "hidden";
     };
 
+    const sideMenuHandler = (fromOutside = false) => {
+      if (stateSideMenu === "hidden" && fromOutside == false) {
+        stateSideMenuAtom.set("opening");
+        setTimeout(() => {
+          stateSideMenuAtom.set("open");
+          showProjectListAtom.set(true);
+        }, 452);
+      } else if (stateSideMenu == 'open') {
+        stateSideMenuAtom.set("hiding");
+        showProjectListAtom.set(false);
+        setTimeout(() => {
+          stateSideMenuAtom.set("hidden");
+        }, 452);
+      }
+    };
+
     return (
         <>
             <aside
                 ref={wrapperRef}
-                className={`${showSideMenu ? "!block showSideMenu bg-raisinblack" : "w-0.5 bg-opacity-0"} ${hideSideMenuAnimation ? "hideSideMenu" : ""} overflow-auto  z-30 h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 `}> {/*  overflow-y-scroll  */}
-                {/* <div className='mx-3 border-b-[1px] h-[54px]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex'>
-                </div>
-                <div className={`fixed bg-cerise border-b-[1px] h-[54px]  top-0 left-0 laptop:w-[26vw] desktop:w-[21rem]  border-timberwolf dark:border-timberwolf border-opacity-50 dark:border-opacity-70 flex justify-end`}>
-                    
-                </div>
-                  */}
+                className={`
+                ${stateSideMenu=='opening' && 'bg-raisinblack showSideMenu'} 
+                ${stateSideMenu=='hiding' && 'hideSideMenu bg-raisinblack'} 
+                ${stateSideMenu=='open' && 'block opacity-100  bg-raisinblack'} 
+                ${stateSideMenu=='hidden' && 'w-0.5 bg-opacity-0'} 
+                overflow-auto  z-30 h-full max-h-[100vh] laptop:w-[26vw] desktop:w-[21rem] fixed top-0 left-0 `}> {/*  overflow-y-scroll  */}
                 <div className="">
                     <div className="">
                         <ul className="flex justify-between w-[17rem] h-10 mx-auto  font-tommyMedium text-xl text-platinum items-center mt-8 widescreen:mt-10">
-                            {/* <li className="">Login</li> */}
                             <a
                                 href="/"
                                 className=" ml-4 z-50 tablet:mr-4 cursor-pointer"
@@ -97,14 +97,13 @@ function SideMenu({ blogEntries, pathname }: { blogEntries: any, pathname: strin
                                 onMouseLeave={handlerLeaveLinks} >Blog</li></a>
                             <a href="/portfolio" className={`${pathname.includes("/portfolio") && 'bg-cerisedark cursor-pointer transition-colors'} p-2 mr-4 tablet:mr-2 laptop:mr-0 rounded-t-md rounded-br-md`}><li className="" onMouseEnter={handlerMouseLinks}
                                 onMouseLeave={handlerLeaveLinks} >Portfolio</li></a>
-                            {/* <li className=" text-5xl font-semibold font-chrono">{'<'}</li> */}
                         </ul>
                         <div
                             ref={refLinks}
                             className={`bg-cerisedark absolute left-[var(--left)] top-[var(--top)] z-50 h-[var(--height)] w-[var(--width)] rounded-md opacity-25 backdrop-blur-lg transition-all duration-300 ease-in-out`}
                         ></div>
                     </div>
-                    <ul className={`${showSideMenu ? 'relative' : 'hidden tablet:flex flex-col'}  p-1 pl-3  w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all `}>
+                    <ul className={`${stateSideMenu === 'opening' || stateSideMenu === 'open' || stateSideMenu == 'hiding' ? 'relative' : 'hidden tablet:flex flex-col'}  p-1 pl-3  w-full ${showProjectList ? 'opacity-100' : 'opacity-0'} laptop:!opacity-100 duration-300 transition-all `}>
 
                         {pathname.includes("/portfolio") ? (<><div className="mt-2">
                             <ProjectLink to={`/portfolio`} sideMenuHandler={sideMenuHandler}>Introduction</ProjectLink>
