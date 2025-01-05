@@ -34,7 +34,7 @@
     "tsparticles": "^2.12.0",
     "tsparticles-engine": "^2.12.0",
     "typescript": "^5.4.5",
-    "yet-another-react-lightbox": "^3.21.6"
+    "yet-another-react-lightbox": "^3.21.7"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",

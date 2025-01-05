@@ -26,8 +26,8 @@ import { Image } from "astro:assets";
 
 
 </div> */}
-<div className="w-[100%] aspect-[4/5] tablet:aspect-video">
-    <ProjectImages client:only images={frontmatter.images}/>
+<div className="w-[100%] aspect-video tablet:aspect-video">
+    <ProjectImages client:load images={frontmatter.images}/>
 </div>
 
 GIFTOKY® is an app that allows users to note and share gift ideas, transforming them into meaningful presents. Developed with React Native and Expo for the front-end, it ensures an efficient user experience, while the back-end is powered by Node.js and WordPress. The app facilitates the creation of personalized wish lists and social interaction, enabling users to follow friends' profiles and anonymously reserve gifts.

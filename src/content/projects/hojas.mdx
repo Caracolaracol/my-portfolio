@@ -17,7 +17,7 @@ import rust from "@/assets/icons/rust-color.svg";
 import TypeScript  from "@/assets/icons/typescript.svg";
 import { Image } from "astro:assets";
 
-<ProjectImages client:only images={frontmatter.images} />
+<ProjectImages client:load images={frontmatter.images} />
 
 
 I'm developing this note-taking app to fit my workflow and creative processes. Unlike other apps, this one meets specific needs for both my development work and writing.

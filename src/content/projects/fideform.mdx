@@ -18,7 +18,7 @@ import php from "@/assets/icons/php.svg";
 import TypeScript from "@/assets/icons/typescript.svg";
 import { Image } from "astro:assets";
 
-<ProjectImages client:only images={frontmatter.images} />
+<ProjectImages client:load images={frontmatter.images} />
 
 
 I developed a website that facilitates the registration process for the FIDE App, allowing one or more members from educational institutions to sign up. The site is integrated with a school database, enabling dynamic queries and registrations based on the institution selected by the user. The front-end is built with Astro and TypeScript, ensuring a fast and modern user experience, while the back-end uses WordPress (ACF) and PHP for managing the data and processes. This site streamlines the enrollment process for FIDE-affiliated schools, making it easier to onboard multiple users efficiently.

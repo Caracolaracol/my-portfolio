@@ -17,7 +17,7 @@ illustrations: [
 import  ProjectImages  from '../../components/atoms/ProjectImages.tsx'
 import { Image } from "astro:assets";
 
-<ProjectImages client:only images={frontmatter.images}/>
+<ProjectImages client:load images={frontmatter.images}/>
     
 This is a Remake of the Ironplant website, a Vegan brand selling food supplements. I did this site for the final project of the React Js bootcamp at Coderhouse, where I forged a lot of my web development skills. In this project you can actually simulate a purchase, it has itemlists, filtered items, item details, cart and a checkout form.
 
