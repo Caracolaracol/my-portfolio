@@ -28,7 +28,9 @@ export default {
 			snow: "#F4EFF1", // LIGHT
 
 
-			cerisedark:"#502b41"
+			cerisedark:"#502b41",
+			viridian:"#154e69",
+			whiteViridian:"#b0bcc2"
 			/* 
 			
 			// COLORS

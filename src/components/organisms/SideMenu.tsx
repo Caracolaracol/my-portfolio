@@ -143,7 +143,7 @@ function SideMenu({
                 : "hidden tablet:flex flex-col"
             }  p-1 pl-3  w-full ${
               showProjectList ? "opacity-100" : "opacity-0"
-            } laptop:!opacity-100 duration-300 transition-all `}
+            } laptop:!opacity-100 duration-300 transition-all h-[78svh] overflow-y-auto`}
           >
             {pathname.includes("/portfolio") ? (
               <>

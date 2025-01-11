@@ -85,7 +85,7 @@ function NavBarMobile({ pathname }: { pathname: String | undefined }) {
                     <p className='text-ocre dark:text-cerise hover:cursor-pointer hover:text-cerise font-tommybold font-black text-lg svg'>{`//`}</p>
                 </div>
                 <div>
-                    <p className='font-tommyregular text-[0.7rem] opacity-80 antialiased text-center tablet:text-dark dark:text-cerise hover:cursor-pointer hover:text-ocre px-2 rounded-2xl active:bg-violetlight transition-colors active:bg-opacity-70 tracking-wider'>menu</p>
+                    <p className='font-tommyregular text-[0.6rem] opacity-80 antialiased text-center tablet:text-dark dark:text-cerise hover:cursor-pointer hover:text-ocre px-2 rounded-2xl active:bg-violetlight transition-colors active:bg-opacity-70 tracking-wider'>menu</p>
                 </div>
             </div>
             <nav ref={wrapperNavBarRef} className={`${showNavBar ? "!block showNavBar" : ""} ${hideNavBarAnimation ? "hidenavbar" : ""} hidden laptop:shownavbar fixed top-0 right-0 z-30 w-[10rem] h-[280px] bg-black dark:bg-richblack`} >

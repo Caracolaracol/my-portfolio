@@ -5,7 +5,7 @@ import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import type { slide } from "astro/virtual-modules/transitions.js";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
-function ProjectImages({ images }: { images: string[] | undefined }) {
+function ProjectImages({ images, sx='object-cover tablet:object-cover' }: { images: string[] | undefined, sx?: string }) {
   const [indexImage, setIndexImage] = useState<number>(0);
   const [indexNextImage, setIndexNextImage] = useState<number>(0);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -67,7 +67,7 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                   onClick={() => setOpenLightbox(true)}
                   alt={images[indexImage]}
                   src={images[indexImage]}
-                  className={`absolute  w-full h-[12rem] tablet:h-full  rounded-lg object-cover tablet:object-cover  tablet:aspect-video  transition-opacity opacity-100 ease-in-out ${
+                  className={`absolute  w-full h-[12rem] tablet:h-full  rounded-lg ${sx} tablet:aspect-video  transition-opacity opacity-100 ease-in-out ${
                     imageLoaded ? "opacity-0" : "opacity-100"
                   } `}
                 />
@@ -77,7 +77,7 @@ function ProjectImages({ images }: { images: string[] | undefined }) {
                   onClick={() => setOpenLightbox(true)}
                   alt={images[indexNextImage]}
                   src={images[indexNextImage]}
-                  className={`absolute w-full h-[12rem] tablet:h-full rounded-lg object-cover tablet:object-cover  tablet:aspect-video  transition-opacity ease-in-out ${
+                  className={`absolute w-full h-[12rem] tablet:h-full rounded-lg ${sx}  tablet:aspect-video  transition-opacity ease-in-out ${
                     imageLoaded ? "opacity-100" : "opacity-0"
                   }`}
                 />
