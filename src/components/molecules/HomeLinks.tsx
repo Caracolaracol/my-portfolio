@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 function HomeLinks() {
     const refLinks = useRef<HTMLDivElement | any>(null);
-    const styles = "font-tommyMedium text-1xl tablet:text-2xl laptop:text-2xl p-2";
+    const styles = "font-tommyMedium text-base tablet:text-2xl laptop:text-2xl p-2";
 
     const handlerMouseLinks = (event: any) => {
         // BG ANIMATED OF FOOTER LINKS
